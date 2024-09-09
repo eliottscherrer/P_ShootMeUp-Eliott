@@ -124,9 +124,32 @@ FROM
     LEFT JOIN t_joueur j ON c.fkJoueur = j.idJoueur;
 
 -- Requete 9
--- Trouver le nombre total d'armes achetées par chaque joueur (même si ce joueur n'a 
--- acheté aucune Arme)
-
+-- Trouver le nombre total d'armes achetées par chaque joueur (même si ce joueur n'a acheté aucune Arme)
+SELECT 
+    j.idJoueur, 
+    j.jouPseudo, 
+    IFNULL(SUM(dc.detQuantiteCommande), 0) AS totalArmesAchetees
+FROM 
+    t_joueur j
+LEFT JOIN 
+    t_commande c ON j.idJoueur = c.fkJoueur
+LEFT JOIN 
+    t_detail_commande dc ON c.idCommande = dc.fkCommande
+GROUP BY 
+    j.idJoueur, j.jouPseudo;
 
 -- Requete 10
 -- Trouver les joueurs qui ont acheté plus de 3 types d'armes différentes.
+SELECT 
+    j.*,
+    COUNT(DISTINCT dc.fkArme) AS NombreArmesDifferentesAchetees
+FROM 
+    t_joueur j
+INNER JOIN 
+    t_commande c ON j.idJoueur = c.fkJoueur
+INNER JOIN 
+    t_detail_commande dc ON c.idCommande = dc.fkCommande
+GROUP BY 
+    j.idJoueur, j.jouPseudo
+HAVING 
+    NombreArmesDifferentesAchetees > 3;
