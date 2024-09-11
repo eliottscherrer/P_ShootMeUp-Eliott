@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Profile>Reach</Profile>
+  <Platform>DesktopGL</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUp/Content/Art/Black Hole.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUp/Content/Art/Bullet.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUp/Content/Art/Glow.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUp/Content/Art/Laser.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUp/Content/Art/Player.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUp/Content/Art/Pointer.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUp/Content/Art/Seeker.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUp/Content/Art/Wanderer.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUp/Content/BloomFilter/BloomCrossPlatform.fx</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUp/Content/Font.spritefont</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>
