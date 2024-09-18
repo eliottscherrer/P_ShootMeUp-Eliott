@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Font.spritefont</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Attack__000.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Attack__001.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Attack__002.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Attack__003.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Attack__004.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Attack__005.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Attack__006.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Attack__007.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Attack__008.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Attack__009.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Climb_000.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Climb_001.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Climb_002.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Climb_003.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Climb_004.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Climb_005.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Climb_006.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Climb_007.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Climb_008.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Climb_009.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Dead__000.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Dead__001.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Dead__002.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Dead__003.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Dead__004.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Dead__005.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Dead__006.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Dead__007.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Dead__008.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Dead__009.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Glide_000.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Glide_001.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Glide_002.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Glide_003.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Glide_004.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Glide_005.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Glide_006.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Glide_007.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Glide_008.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Glide_009.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Idle__000.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Idle__001.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Idle__002.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Idle__003.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Idle__004.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Idle__005.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Idle__006.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Idle__007.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Idle__008.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Idle__009.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Jump__000.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Jump__001.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Jump__002.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Jump__003.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Jump__004.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Jump__005.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Jump__006.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Jump__007.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Jump__008.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Jump__009.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Jump_Attack__000.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Jump_Attack__001.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Jump_Attack__002.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Jump_Attack__003.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Jump_Attack__004.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Jump_Attack__005.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Jump_Attack__006.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Jump_Attack__007.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Jump_Attack__008.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Jump_Attack__009.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Jump_Throw__000.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Jump_Throw__001.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Jump_Throw__002.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Jump_Throw__003.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Jump_Throw__004.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Jump_Throw__005.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Jump_Throw__006.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Jump_Throw__007.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Jump_Throw__008.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Jump_Throw__009.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Kunai.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Run__000.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Run__001.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Run__002.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Run__003.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Run__004.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Run__005.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Run__006.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Run__007.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Run__008.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Run__009.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Slide__000.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Slide__001.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Slide__002.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Slide__003.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Slide__004.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Slide__005.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Slide__006.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Slide__007.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Slide__008.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Slide__009.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Throw__000.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Throw__001.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Throw__002.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Throw__003.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Throw__004.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Throw__005.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Throw__006.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Throw__007.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Throw__008.png</File>
+    <File>C:/Users/pg13qnw/Documents/GitHub/P_ShootMeUp-Eliott/POO/ShootMeUpV1/Content/Sprites/Player/Throw__009.png</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>
