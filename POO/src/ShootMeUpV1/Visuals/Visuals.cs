@@ -18,9 +18,9 @@ namespace ShootMeUpV1
         {
             Player = content.Load<Texture2D>("Sprites/Player/Idle__000");
             SpriteFont = content.Load<SpriteFont>("Font");
-            return; // Those sprites are yet to be done
+            BasicOni = content.Load<Texture2D>("Sprites/Player/Idle__000"); // Temporary sprite since the ennemy sprite isn't finished yet
 
-            BasicOni = content.Load<Texture2D>("BasicOni");
+            return; // Those sprites are yet to be done
             SwordSlash = content.Load<Texture2D>("SwordSlash");
         }
 
