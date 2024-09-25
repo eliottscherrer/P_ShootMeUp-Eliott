@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using SharpDX.XInput;
+using System;
 
 namespace ShootMeUpV1
 {
@@ -35,6 +36,8 @@ namespace ShootMeUpV1
             base.Initialize();
 
             EntityManager.Add(LocalPlayer.Instance);
+
+            EntityManager.Add(new Ennemy(new Vector2(100, 0), 20f));
         }
 
         protected override void LoadContent()
@@ -62,7 +65,7 @@ namespace ShootMeUpV1
             _spriteBatch.Begin(/*SpriteSortMode.Texture, BlendState.Additive*/);
             {
                 EntityManager.Draw(_spriteBatch);
-                _spriteBatch.DrawString(Visuals.SpriteFont, "onglier", new Vector2(100, 100), Color.Black);
+                //_spriteBatch.DrawString(Visuals.SpriteFont, "onglier", new Vector2(100, 1000), Color.Black);
             }
             _spriteBatch.End();
 

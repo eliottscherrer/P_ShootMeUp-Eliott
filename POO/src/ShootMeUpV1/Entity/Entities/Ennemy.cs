@@ -29,6 +29,27 @@ namespace ShootMeUpV1
 
         public override void Update(GameTime gameTime)
         {
+            // Get the player position and calculate the direction to the player
+            Vector2 playerPosition = LocalPlayer.Instance.Position;
+            Vector2 directionToPlayer = playerPosition - Position;
+
+            // Only move towards the player we're not colliding with it
+            if (directionToPlayer.LengthSquared() > LocalPlayer.Instance.CollisionRadius * LocalPlayer.Instance.CollisionRadius)
+            {
+                // Normalize the direction and scale it by speed
+                directionToPlayer.Normalize();
+                Velocity = directionToPlayer * Speed;
+
+                // Move the enemy
+                Position += Velocity;
+                LimitPositionToBounds();
+            }
+            else
+            {
+                // Stop moving if close to the player
+                Velocity = Vector2.Zero;
+            }
+        }
         }
     }
 }
