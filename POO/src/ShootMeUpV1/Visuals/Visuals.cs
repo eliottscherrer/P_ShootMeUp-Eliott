@@ -15,7 +15,7 @@ namespace ShootMeUpV1
 
         public static void Load(ContentManager content)
         {
-            Player = content.Load<Texture2D>("Sprites/Player/Idle__001");
+            Player = content.Load<Texture2D>("Sprites/Player/Idle__000");
             SpriteFont = content.Load<SpriteFont>("Font");
             return; // Those sprites are yet to be done
 

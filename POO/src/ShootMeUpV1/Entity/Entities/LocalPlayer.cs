@@ -24,12 +24,13 @@ namespace ShootMeUpV1
         // Constructor
         private LocalPlayer() : base(position: GameRoot.ScreenSize / 2, velocity: Vector2.Zero)
         {
-            Texture = Visuals.Player;
             CollisionRadius = 10;
+            Texture = Visuals.Player;
         }
 
         public override void Update(GameTime gameTime)
         {
+
             // Move the player and limit its movement to the screen (so it cannot go out of bounds)
             Velocity += Speed * GetMovementDirection();
             Position += Velocity;

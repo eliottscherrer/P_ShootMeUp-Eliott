@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 
 namespace ShootMeUpV1
 {
@@ -14,7 +15,7 @@ namespace ShootMeUpV1
         public Vector2 Velocity;
         public float Rotation;                              // Rotation in radians
         public float CollisionRadius = 20f;                 // Circular collision shape radius
-        public bool IsDestroyed;                            // Marks entity for destruction
+        public bool IsDestroyed = false;                    // Marks entity for destruction
 
         // Calculates entity size based on their texture
         public Vector2 Size => Texture?.Bounds.Size.ToVector2() ?? Vector2.Zero;
@@ -37,13 +38,13 @@ namespace ShootMeUpV1
                 spriteBatch.Draw(
                     Texture,
                     Position,
-                    null,
+                    null,                   // No source rectangle
                     TintColor,
                     Rotation,
-                    Size / 2f,           // Origin set to center of the texture
-                    1f,                  // No scaling
+                    Size / 2f,              // Centered origin
+                    1f,                     // No scaling
                     SpriteEffects.None,
-                    0f                   // Layer depth
+                    0f                      // Depth
                 );
             }
         }

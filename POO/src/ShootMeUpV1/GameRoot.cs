@@ -32,9 +32,9 @@ namespace ShootMeUpV1
 
         protected override void Initialize()
         {
-            EntityManager.Add(LocalPlayer.Instance);
-
             base.Initialize();
+
+            EntityManager.Add(LocalPlayer.Instance);
         }
 
         protected override void LoadContent()
