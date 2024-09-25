@@ -10,7 +10,7 @@ namespace ShootMeUpV1
         ///////////////////////////////// [ CONSTS ] /////////////////////////////////
 
         private const int COOLDOWN_TIME = 60;           // Counted in frames
-        private const float SCALE = 0.25f;           // Counted in frames
+        private const float SCALE = 0.25f;
 
         ////////////////////////////////// [ VARS ] //////////////////////////////////
         
