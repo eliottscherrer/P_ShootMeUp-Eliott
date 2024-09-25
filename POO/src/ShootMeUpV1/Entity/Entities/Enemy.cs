@@ -5,7 +5,7 @@ using System;
 
 namespace ShootMeUpV1
 {
-    class Ennemy : Entity
+    class Enemy : Entity
     {
         ///////////////////////////////// [ CONSTS ] /////////////////////////////////
 
@@ -19,7 +19,7 @@ namespace ShootMeUpV1
         private float RemainingCooldown; // Cooldown timer for attack
 
         // Constructor
-        public Ennemy(Vector2 position, float collisionRadius) : base(position, velocity: Vector2.Zero)
+        public Enemy(Vector2 position, float collisionRadius) : base(position, velocity: Vector2.Zero)
         {
             Texture = Visuals.BasicOni;
             CollisionRadius = collisionRadius;
