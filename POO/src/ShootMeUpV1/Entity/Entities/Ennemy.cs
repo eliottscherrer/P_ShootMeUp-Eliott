@@ -29,6 +29,10 @@ namespace ShootMeUpV1
 
         public override void Update(GameTime gameTime)
         {
+            // Update cooldown
+            if (RemainingCooldown > 0)
+                RemainingCooldown--;
+
             // Get the player position and calculate the direction to the player
             Vector2 playerPosition = LocalPlayer.Instance.Position;
             Vector2 directionToPlayer = playerPosition - Position;
@@ -49,7 +53,27 @@ namespace ShootMeUpV1
                 // Stop moving if close to the player
                 Velocity = Vector2.Zero;
             }
+
+            // Attack
+            if (RemainingCooldown <= 0 && Vector2.Distance(Position, playerPosition) < CollisionRadius)
+            {
+                Attack();
+                // Reset the cooldown after the attack
+                RemainingCooldown = ATTACK_COOLDOWN_TIME;
+            }
         }
+
+
+        private void Attack()
+        {
+            // TODO: Implement attack logic here
+        }
+
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            base.Draw(spriteBatch);
+            
+            // TODO: Add healthbar
         }
     }
 }
