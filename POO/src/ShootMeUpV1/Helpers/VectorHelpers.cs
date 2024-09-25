@@ -7,9 +7,6 @@ namespace ShootMeUpV1
     static class VectorHelpers
     {
         // Vector to angle in radians
-        public static float ToAngle(this Vector2 vector)
-        {
-            return (float)Math.Atan2(vector.Y, vector.X);
-        }
+        public static float ToAngle(this Vector2 vector) => (float)Math.Atan2(vector.Y, vector.X);
     }
 }
