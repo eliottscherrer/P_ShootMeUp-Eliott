@@ -9,8 +9,9 @@ namespace ShootMeUpV1
     {
         ///////////////////////////////// [ CONSTS ] /////////////////////////////////
 
-        private const int COOLDOWN_TIME = 60;           // Counted in frames
+        private const int ATTACK_COOLDOWN_TIME = 60;           // Counted in frames
         private const float SCALE = 0.25f;
+        private const float COLLISION_RADIUS = 75f;
 
         ////////////////////////////////// [ VARS ] //////////////////////////////////
         
@@ -25,7 +26,7 @@ namespace ShootMeUpV1
         // Constructor
         private LocalPlayer() : base(position: GameRoot.ScreenSize / 2, velocity: Vector2.Zero)
         {
-            CollisionRadius = 10;
+            CollisionRadius = COLLISION_RADIUS;
             Texture = Visuals.Player;
             Scale = SCALE;
         }
@@ -35,8 +36,7 @@ namespace ShootMeUpV1
             // Move the player and limit its movement to the screen (so it cannot go out of bounds)
             Velocity += Speed * GetMovementDirection();
             Position += Velocity;
-            Position = Vector2.Clamp(Position, Size / 2, GameRoot.ScreenSize - Size / 2);
-            Console.WriteLine(Position.ToString());
+            LimitPositionToBounds();
 
             // Attack cooldown
             if (RemainingCooldown > 0)

@@ -65,5 +65,10 @@ namespace ShootMeUpV1
         }
 
         public bool IsOutOfBounds() => GameRoot.Viewport.Bounds.Contains(Position.ToPoint());
+
+        protected void LimitPositionToBounds()
+        {
+            Position = Vector2.Clamp(Position, Size / 2, GameRoot.ScreenSize - Size / 2);
+        }
     }
 }
