@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Content;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace ShootMeUpV1
@@ -21,6 +22,21 @@ namespace ShootMeUpV1
 
             BasicOni = content.Load<Texture2D>("BasicOni");
             SwordSlash = content.Load<Texture2D>("SwordSlash");
+        }
+
+        public static void DrawRectangle(SpriteBatch spriteBatch, Rectangle rectangle, Color color)
+        {
+            // Draw top border
+            spriteBatch.Draw(GameRoot.Pixel, new Rectangle(rectangle.Left, rectangle.Top, rectangle.Width, 1), color);
+
+            // Draw left border
+            spriteBatch.Draw(GameRoot.Pixel, new Rectangle(rectangle.Left, rectangle.Top, 1, rectangle.Height), color);
+
+            // Draw right border
+            spriteBatch.Draw(GameRoot.Pixel, new Rectangle(rectangle.Right, rectangle.Top, 1, rectangle.Height), color);
+
+            // Draw bottom border
+            spriteBatch.Draw(GameRoot.Pixel, new Rectangle(rectangle.Left, rectangle.Bottom, rectangle.Width, 1), color);
         }
     }
 }

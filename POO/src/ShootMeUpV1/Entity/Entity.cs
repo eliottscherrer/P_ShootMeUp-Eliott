@@ -10,6 +10,7 @@ namespace ShootMeUpV1
         protected Texture2D Texture;
         protected float Scale = 1f;
         protected Color TintColor = Color.White;
+        protected bool ShowDebugBounds = true;
 
         // State and properties
         public Vector2 Position;
@@ -47,6 +48,19 @@ namespace ShootMeUpV1
                     SpriteEffects.None,
                     0f                      // Depth
                 );
+            }
+
+            if (ShowDebugBounds)
+            {
+                // Calculate the rectangle representing the entity's bounds (centered on Position)
+                Rectangle debugRect = new Rectangle(
+                    (int)(Position.X - (Size.X / 2)),
+                    (int)(Position.Y - (Size.Y / 2)),
+                    (int)Size.X,
+                    (int)Size.Y
+                );
+
+                Visuals.DrawRectangle(spriteBatch, debugRect, Color.Red);
             }
         }
 
