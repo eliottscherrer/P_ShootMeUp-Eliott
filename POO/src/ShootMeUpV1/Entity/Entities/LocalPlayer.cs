@@ -37,10 +37,6 @@ namespace ShootMeUpV1
             Position = Vector2.Clamp(Position, Size / 2, GameRoot.ScreenSize - Size / 2);
             Console.WriteLine(Position.ToString());
 
-            // Rotate towards the mouse cursor
-            Vector2 aimDirection = GetAimDirection();
-            Rotation = aimDirection.ToAngle();
-
             // Attack cooldown
             if (RemainingCooldown > 0)
                 RemainingCooldown--;
