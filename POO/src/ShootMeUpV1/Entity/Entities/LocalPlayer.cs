@@ -10,6 +10,7 @@ namespace ShootMeUpV1
         ///////////////////////////////// [ CONSTS ] /////////////////////////////////
 
         private const int COOLDOWN_TIME = 60;           // Counted in frames
+        private const float SCALE = 0.25f;           // Counted in frames
 
         ////////////////////////////////// [ VARS ] //////////////////////////////////
         
@@ -26,11 +27,11 @@ namespace ShootMeUpV1
         {
             CollisionRadius = 10;
             Texture = Visuals.Player;
+            Scale = SCALE;
         }
 
         public override void Update(GameTime gameTime)
         {
-
             // Move the player and limit its movement to the screen (so it cannot go out of bounds)
             Velocity += Speed * GetMovementDirection();
             Position += Velocity;
@@ -56,8 +57,6 @@ namespace ShootMeUpV1
                 direction.Y -= 1;
             if (InputManager.IsKeyDown(Keys.Down) || InputManager.IsKeyDown(Keys.S))
                 direction.Y += 1;
-
-            Console.WriteLine("Current direction: " + direction.ToString());
 
             if (direction != Vector2.Zero)
                 return Vector2.Normalize(direction);

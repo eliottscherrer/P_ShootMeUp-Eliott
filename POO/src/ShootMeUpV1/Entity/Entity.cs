@@ -8,6 +8,7 @@ namespace ShootMeUpV1
     {
         // Visuals
         protected Texture2D Texture;
+        protected float Scale = 1f;
         protected Color TintColor = Color.White;
 
         // State and properties
@@ -17,8 +18,8 @@ namespace ShootMeUpV1
         public float CollisionRadius = 20f;                 // Circular collision shape radius
         public bool IsDestroyed = false;                    // Marks entity for destruction
 
-        // Calculates entity size based on their texture
-        public Vector2 Size => Texture?.Bounds.Size.ToVector2() ?? Vector2.Zero;
+        // Calculates entity size based on their texture and scale
+        public Vector2 Size => (Texture?.Bounds.Size.ToVector2() ?? Vector2.Zero) * Scale;
 
         // Default constructor
         public Entity(Vector2 position, Vector2 velocity)
@@ -41,8 +42,8 @@ namespace ShootMeUpV1
                     null,                   // No source rectangle
                     TintColor,
                     Rotation,
-                    Size / 2f,              // Centered origin
-                    1f,                     // No scaling
+                    Size / 2f,              // Centered origin (half of the scaled size)
+                    Scale,
                     SpriteEffects.None,
                     0f                      // Depth
                 );
