@@ -1,3 +1,3 @@
 ﻿
-using var game = new ShootMeUpV2.Game1();
+using var game = new ShootMeUpV2.GameRoot();
 game.Run();
