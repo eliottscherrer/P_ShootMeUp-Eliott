@@ -1,6 +1,6 @@
------------------------------------------------------------------------------------------------
------------------------------------------- [ ROLES ] ------------------------------------------
------------------------------------------------------------------------------------------------
+-- --------------------------------------------------------------------------------------------
+-- ---------------------------------------- [ ROLES ] -----------------------------------------
+-- --------------------------------------------------------------------------------------------
 USE db_space_invaders;
 
 -- Administrateurs --
@@ -28,30 +28,30 @@ GRANT UPDATE, SELECT, DELETE ON t_arme TO 'GestionnairesBoutique';
 -- Lire toutes les commandes.
 GRANT SELECT ON t_commande TO 'GestionnairesBoutique';
 
------------------------------------------------------------------------------------------------
------------------------------------------- [ USERS ] ------------------------------------------
------------------------------------------------------------------------------------------------
+-- --------------------------------------------------------------------------------------------
+-- ---------------------------------------- [ USERS ] -----------------------------------------
+-- --------------------------------------------------------------------------------------------
 
 -- Administrateur --
 CREATE USER 'Administrateur' IDENTIFIED BY 'adminpass';
 GRANT 'Administrateurs' TO 'Administrateur';
-SET DEFAULT ROLE 'Administrateurs' FOR 'Administrateur';
+SET DEFAULT ROLE 'Administrateurs' TO 'Administrateur';
 
 -- Joueur --
 CREATE USER 'Joueur1' IDENTIFIED BY 'joueur1pass';
 GRANT 'Joueurs' TO 'Joueur1';
-SET DEFAULT ROLE 'Joueurs' FOR 'Joueur1';
+SET DEFAULT ROLE 'Joueurs' TO 'Joueur1';
 
 -- Gestionnaire de la boutique --
 CREATE USER 'GestionnaireBoutique' IDENTIFIED BY 'gestionnairepass';
 GRANT 'GestionnairesBoutique' TO 'GestionnaireBoutique';
-SET DEFAULT ROLE 'GestionnairesBoutique' FOR 'GestionnaireBoutique';
+SET DEFAULT ROLE 'GestionnairesBoutique' TO 'GestionnaireBoutique';
 
 FLUSH PRIVILEGES;
 
------------------------------------------------------------------------------------------------
------------------------------------------- [ VERIF ] ------------------------------------------
------------------------------------------------------------------------------------------------
+-- --------------------------------------------------------------------------------------------
+-- ---------------------------------------- [ VERIF ] -----------------------------------------
+-- --------------------------------------------------------------------------------------------
 
 -- Montrer les privilèges de chaque utilisateurs
 SHOW GRANTS FOR 'Administrateur';
