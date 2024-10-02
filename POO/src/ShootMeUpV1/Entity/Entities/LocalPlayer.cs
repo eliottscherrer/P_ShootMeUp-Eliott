@@ -40,11 +40,22 @@ namespace ShootMeUpV1
             Position += Velocity;
             LimitPositionToBounds();
 
+            // Check for player actions
+            if(InputManager.WasLeftButtonJustPressed())
+                Attack();
+
             // Attack cooldown
             if (RemainingCooldown > 0)
                 RemainingCooldown--;
         }
 
+        // Player actions
+        private void Attack()
+        {
+            // TODO: Attack logic
+        }
+
+        // Input infos
         private static Vector2 GetMovementDirection()
         {
             Vector2 direction = Vector2.Zero;
