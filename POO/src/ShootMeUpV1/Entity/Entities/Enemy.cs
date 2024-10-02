@@ -37,7 +37,7 @@ namespace ShootMeUpV1
             Vector2 directionToPlayer = playerPosition - Position;
 
             // Only move towards the player we're not colliding with it
-            if (directionToPlayer.LengthSquared() > LocalPlayer.Instance.CollisionRadius * LocalPlayer.Instance.CollisionRadius)
+            if (!IsCollidingWith(LocalPlayer.Instance))
             {
                 // Normalize the direction and scale it by speed
                 directionToPlayer.Normalize();

@@ -80,7 +80,9 @@ namespace ShootMeUpV1
         // Collisions
         public bool IsCollidingWith(Entity other)
         {
-            throw new NotImplementedException();
+            // Using "this" for clearer code
+            float combinedRadii = this.CollisionRadius + other.CollisionRadius;
+            return Vector2.DistanceSquared(this.Position, other.Position) <= combinedRadii * combinedRadii;
         }
 
         public abstract void OnCollision(Entity other);
