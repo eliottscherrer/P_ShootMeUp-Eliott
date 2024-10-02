@@ -24,6 +24,8 @@ namespace ShootMeUpV1
         private int BulletSpeed;
         private float RemainingCooldown;
 
+        //////////////////////////////////////////////////////////////////////////////
+
         // Constructor
         private LocalPlayer() : base(position: GameRoot.ScreenSize / 2, velocity: Vector2.Zero)
         {
