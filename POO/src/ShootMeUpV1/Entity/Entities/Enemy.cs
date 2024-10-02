@@ -17,6 +17,8 @@ namespace ShootMeUpV1
         private readonly float Speed = 3f;
         private float RemainingCooldown;                        // Cooldown timer for attack
 
+        //////////////////////////////////////////////////////////////////////////////
+
         // Constructor
         public Enemy(Vector2 position, float collisionRadius) : base(position, velocity: Vector2.Zero)
         {
