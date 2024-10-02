@@ -52,7 +52,6 @@ namespace ShootMeUpV1
         // Player actions
         private void Attack()
         {
-            // TODO: Attack logic
             Vector2 aimDirection = GetAimDirection();
 
             // Create a bullet moving in the direction of the aim
