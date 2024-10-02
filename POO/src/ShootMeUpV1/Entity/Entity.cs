@@ -22,6 +22,7 @@ namespace ShootMeUpV1
 
         // State and properties
         public Vector2 Position { get; protected set; }
+        public Vector2 RotatedPosition => Position + Vector2.Transform(Vector2.Zero, Matrix.CreateRotationZ(Rotation));
         public Vector2 Velocity { get; protected set; }
         public float Rotation { get; protected set; }         // Rotation in radians
         public float CollisionRadius { get; protected set; }  // Circular collision shape radius
@@ -80,9 +81,15 @@ namespace ShootMeUpV1
         // Collisions
         public bool IsCollidingWith(Entity other)
         {
-            // Using "this" for clearer code
+            // Calculate positions from center
+            Vector2 thisCenter = Position + Size / 2;
+            Vector2 otherCenter = other.Position + other.Size / 2;
+
+            // Calculate distances between centers
+            float distanceSquared = Vector2.DistanceSquared(thisCenter, otherCenter);
             float combinedRadii = this.CollisionRadius + other.CollisionRadius;
-            return Vector2.DistanceSquared(this.Position, other.Position) <= combinedRadii * combinedRadii;
+
+            return distanceSquared <= combinedRadii * combinedRadii;
         }
 
         public abstract void OnCollision(Entity other);
