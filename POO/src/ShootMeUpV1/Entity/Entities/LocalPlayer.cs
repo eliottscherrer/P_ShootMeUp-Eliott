@@ -20,9 +20,9 @@ namespace ShootMeUpV1
         public static LocalPlayer Instance => _instance ??= new LocalPlayer();
 
         // Stats
-        private readonly float Speed;
-        private float BulletSpeed;
-        private float RemainingCooldown;
+        private readonly float _speed;
+        private float _bulletSpeed;
+        private float _remainingCooldown;
 
         //////////////////////////////////////////////////////////////////////////////
 
@@ -33,8 +33,8 @@ namespace ShootMeUpV1
             Texture = Visuals.Player;
             Scale = SCALE;
 
-            Speed = DEFAULT_SPEED;
-            BulletSpeed = Bullet.DEFAULT_SPEED;
+            _speed = DEFAULT_SPEED;
+            _bulletSpeed = Bullet.DEFAULT_SPEED;
         }
 
         public override void Update(GameTime gameTime)
@@ -43,16 +43,16 @@ namespace ShootMeUpV1
             float elapsedSeconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             // Move the player and limit its movement to the screen (so it cannot go out of bounds)
-            Velocity = Speed * GetMovementDirection();
+            Velocity = _speed * GetMovementDirection();
             Position += Velocity * elapsedSeconds;
             LimitPositionToBounds();
 
             // Update attack cooldown
-            if (RemainingCooldown > 0)
-                RemainingCooldown -= elapsedSeconds;
+            if (_remainingCooldown > 0)
+                _remainingCooldown -= elapsedSeconds;
 
             // Check for player actions
-            if (RemainingCooldown <= 0 && InputManager.WasLeftButtonJustPressed())
+            if (_remainingCooldown <= 0 && InputManager.WasLeftButtonJustPressed())
                 Attack();
         }
 
@@ -62,10 +62,10 @@ namespace ShootMeUpV1
             Vector2 aimDirection = GetAimDirection();
 
             // Create a bullet moving in the direction of the aim
-            EntityManager.Add(new Bullet(Position, aimDirection * BulletSpeed, BulletType.Player));
+            EntityManager.Add(new Bullet(Position, aimDirection * _bulletSpeed, BulletType.Player));
 
             // Set the cooldown for the next attack
-            RemainingCooldown = ATTACK_COOLDOWN_TIME;
+            _remainingCooldown = ATTACK_COOLDOWN_TIME;
         }
 
         // Events
