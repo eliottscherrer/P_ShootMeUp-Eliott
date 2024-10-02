@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 
 namespace ShootMeUpV1
 {
@@ -22,25 +23,42 @@ namespace ShootMeUpV1
             SwordSlash = content.Load<Texture2D>("Sprites/Bullet/TempBulletSprite");    // Temporary sprite since the Bullet sprite isn't finished yet
         }
 
-        public static void DrawRectangle(SpriteBatch spriteBatch, Rectangle rectangle, Color color, float rotation)
+        public static void DrawRectangle(SpriteBatch spriteBatch, Vector2 position, float width, float height, float rotation, Color color)
         {
-            // Define the thickness of the border
-            int thickness = 1;
+            // Calculate the four corners of the rectangle
+            Vector2[] corners = new Vector2[4]
+            {
+                new Vector2(position.X, position.Y),   // Top-left
+                new Vector2(position.X + width, position.Y),    // Top-right
+                new Vector2(position.X + width, position.Y + height),     // Bottom-right
+                new Vector2(position.X, position.Y + height)     // Bottom-left
+            };
 
-            // Define the origin for rotation (rotate around the top-left corner of the rectangle)
-            Vector2 origin = new Vector2(0, 0);
+            // Apply rotation and translate to position
+            for (int i = 0; i < corners.Length; i++)
+            {
+                // Rotate the point
+                corners[i] = Vector2.Transform(corners[i], Matrix.CreateRotationZ(rotation));
 
-            // Top border
-            spriteBatch.Draw(GameRoot.Pixel, new Rectangle(rectangle.Left, rectangle.Top, rectangle.Width, thickness), color);
+                // Translate the point to the desired position
+                corners[i] += position;
+            }
 
-            // Left border
-            spriteBatch.Draw(GameRoot.Pixel, new Rectangle(rectangle.Left, rectangle.Top, thickness, rectangle.Height), color);
+            // Draw the lines between the corners (could be made into a loop but it would be terrible to read)
+            DrawLine(spriteBatch, corners[0], corners[1], color);
+            DrawLine(spriteBatch, corners[1], corners[2], color);
+            DrawLine(spriteBatch, corners[2], corners[3], color);
+            DrawLine(spriteBatch, corners[3], corners[0], color);
+        }
 
-            // Right border
-            spriteBatch.Draw(GameRoot.Pixel, new Rectangle(rectangle.Right - thickness, rectangle.Top, thickness, rectangle.Height), color);
+        private static void DrawLine(SpriteBatch spriteBatch, Vector2 start, Vector2 end, Color color)
+        {
+            // Calculate the length and angle of the line
+            float length = Vector2.Distance(start, end);
+            float angle = (float)Math.Atan2(end.Y - start.Y, end.X - start.X);
 
-            // Bottom border
-            spriteBatch.Draw(GameRoot.Pixel, new Rectangle(rectangle.Left, rectangle.Bottom - thickness, rectangle.Width, thickness), color);
+            // Draw the line as a rectangle (1xN) rotated to the correct angle
+            spriteBatch.Draw(GameRoot.Pixel, start, null, color, angle, Vector2.Zero, new Vector2(length, 1f), SpriteEffects.None, 0f);
         }
     }
 }

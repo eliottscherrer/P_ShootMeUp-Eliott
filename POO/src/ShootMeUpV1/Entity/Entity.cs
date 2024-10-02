@@ -62,7 +62,7 @@ namespace ShootMeUpV1
                 );
 
                 // Draw the rotated rectangle
-                Visuals.DrawRectangle(spriteBatch, debugRect, Color.Red, Rotation);
+                Visuals.DrawRectangle(spriteBatch, Position, Size.X, Size.Y, Rotation, Color.Red);
             }
         }
 
