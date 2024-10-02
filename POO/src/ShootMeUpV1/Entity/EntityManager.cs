@@ -1,7 +1,10 @@
-﻿using Microsoft.Xna.Framework;
+﻿#define CONSOLE_DEBUG
+
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
+
 
 namespace ShootMeUpV1
 {
@@ -61,11 +64,38 @@ namespace ShootMeUpV1
                     // Check if the entities collide
                     if (entityA.IsCollidingWith(entityB))
                     {
+                        #if CONSOLE_DEBUG
+                        // Debug output with color coding
+                        ConsoleColor colorA = GetColorForType(entityA.GetType().Name);
+                        ConsoleColor colorB = GetColorForType(entityB.GetType().Name);
+
+                        Console.ForegroundColor = colorA;
+                        Console.Write(entityA.GetType().Name);
+
+                        Console.ResetColor();
+                        Console.Write(" collisionne un ");
+
+                        Console.ForegroundColor = colorB;
+                        Console.WriteLine(entityB.GetType().Name);
+
+                        Console.ResetColor();
+                        #endif
+
                         entityA.OnCollision(entityB);
                         entityB.OnCollision(entityA);
                     }
                 }
             }
         }
+
+        #if CONSOLE_DEBUG
+        private static ConsoleColor GetColorForType(string entityType) => entityType switch
+        {
+            "LocalPlayer" => ConsoleColor.Green,
+            "Enemy" => ConsoleColor.Red,
+            "Bullet" => ConsoleColor.Cyan,
+            _ => ConsoleColor.White
+        };
+        #endif
     }
 }
