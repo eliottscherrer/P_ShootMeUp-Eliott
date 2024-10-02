@@ -2,7 +2,7 @@
 {
     interface IDamageable
     {
-        int Health { get; set; }
+        int Health { get; }
         void TakeDamage(int damage);
         void Attack();
     }
