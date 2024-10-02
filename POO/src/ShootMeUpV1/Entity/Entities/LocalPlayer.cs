@@ -62,7 +62,7 @@ namespace ShootMeUpV1
             Vector2 aimDirection = GetAimDirection();
 
             // Create a bullet moving in the direction of the aim
-            EntityManager.Add(new Bullet(Position, aimDirection * BulletSpeed));
+            EntityManager.Add(new Bullet(Position, aimDirection * BulletSpeed, BulletType.Player));
 
             // Set the cooldown for the next attack
             RemainingCooldown = ATTACK_COOLDOWN_TIME;
@@ -71,7 +71,7 @@ namespace ShootMeUpV1
         // Events
         public override void OnCollision(Entity other)
         {
-            throw new NotImplementedException();
+            // TODO: Collision logic
         }
 
         // Input infos
