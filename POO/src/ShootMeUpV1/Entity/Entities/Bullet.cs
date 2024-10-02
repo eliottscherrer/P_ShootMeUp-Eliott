@@ -5,6 +5,13 @@ using System;
 
 namespace ShootMeUpV1
 {
+    enum BulletType
+    {
+        Player,
+        Enemy,
+        SIZE
+    }
+
     class Bullet : Entity
     {
         ///////////////////////////////// [ CONSTS ] /////////////////////////////////
@@ -12,14 +19,20 @@ namespace ShootMeUpV1
         public const int DEFAULT_SPEED = 5;
         private const float SCALE = 0.065f;
 
+        ////////////////////////////////// [ VARS ] //////////////////////////////////
+
+        public readonly BulletType Type;
+
         //////////////////////////////////////////////////////////////////////////////
-        public Bullet(Vector2 position, Vector2 velocity) : base(position, velocity)
+
+        public Bullet(Vector2 position, Vector2 velocity, BulletType type) : base(position, velocity)
         {
             Scale = SCALE;
             Texture = Visuals.SwordSlash;
             Rotation = Velocity.ToAngle();
             Rotation += MathHelper.PiOver2; // Add 90 degrees because the texture is not properly oriented
             CollisionRadius = 8;
+            Type = type;
         }
 
         public override void Update(GameTime gameTime)

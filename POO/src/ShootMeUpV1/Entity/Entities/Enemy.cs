@@ -79,7 +79,7 @@ namespace ShootMeUpV1
         // Events
         public override void OnCollision(Entity other)
         {
-            throw new NotImplementedException();
+            // TODO: Collision logic
         }
     }
 }
