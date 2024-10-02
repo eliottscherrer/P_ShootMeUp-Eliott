@@ -11,7 +11,7 @@ namespace ShootMeUpV1
         private const float ATTACK_COOLDOWN_TIME = 1f;           // Counted in seconds
         private const float SCALE = 0.25f;
         private const float COLLISION_RADIUS = 75f;
-        private const float DEFAULT_SPEED = 8f;
+        private const float DEFAULT_SPEED = 300f;
 
         ////////////////////////////////// [ VARS ] //////////////////////////////////
         
@@ -37,14 +37,14 @@ namespace ShootMeUpV1
 
         public override void Update(GameTime gameTime)
         {
+            // Calculate the elapsed time since the last frame in seconds
+            float elapsedSeconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
+
             // Move the player and limit its movement to the screen (so it cannot go out of bounds)
             Velocity = Vector2.Zero;
             Velocity += Speed * GetMovementDirection();
-            Position += Velocity;
+            Position += Velocity * elapsedSeconds;
             LimitPositionToBounds();
-
-            // Calculate the elapsed time since the last frame in seconds
-            float elapsedSeconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             // Update attack cooldown
             if (RemainingCooldown > 0)
