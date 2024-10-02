@@ -16,7 +16,7 @@ namespace ShootMeUpV1
     {
         ///////////////////////////////// [ CONSTS ] /////////////////////////////////
 
-        public const int DEFAULT_SPEED = 5;
+        public const float DEFAULT_SPEED = 5f;
         public const int DEFAULT_DAMAGE = 10;
         private const float SCALE = 0.065f;
 

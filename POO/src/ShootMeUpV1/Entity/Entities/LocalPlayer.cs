@@ -21,7 +21,7 @@ namespace ShootMeUpV1
 
         // Stats
         private readonly float Speed;
-        private int BulletSpeed;
+        private float BulletSpeed;
         private float RemainingCooldown;
 
         //////////////////////////////////////////////////////////////////////////////
