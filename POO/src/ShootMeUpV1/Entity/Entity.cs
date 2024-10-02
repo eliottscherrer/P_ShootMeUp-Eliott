@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
 
 namespace ShootMeUpV1
 {
@@ -43,7 +42,7 @@ namespace ShootMeUpV1
                     null,                   // No source rectangle
                     TintColor,
                     Rotation,
-                    Size / 2f,              // Centered origin (half of the scaled size)
+                    Vector2.Zero,           // Centered origin (half of the scaled size)
                     Scale,
                     SpriteEffects.None,
                     0f                      // Depth
@@ -54,8 +53,8 @@ namespace ShootMeUpV1
             {
                 // Calculate the rectangle representing the entity's bounds (centered on Position)
                 Rectangle debugRect = new Rectangle(
-                    (int)(Position.X - (Size.X / 2)),
-                    (int)(Position.Y - (Size.Y / 2)),
+                    (int)Position.X,
+                    (int)Position.Y,
                     (int)Size.X,
                     (int)Size.Y
                 );
@@ -68,7 +67,7 @@ namespace ShootMeUpV1
 
         protected void LimitPositionToBounds()
         {
-            Position = Vector2.Clamp(Position, Size / 2, GameRoot.ScreenSize - Size / 2);
+            Position = Vector2.Clamp(Position, Vector2.Zero, GameRoot.ScreenSize - Size);
         }
     }
 }
