@@ -24,6 +24,10 @@ namespace ShootMeUpV1
             SpriteFont = content.Load<SpriteFont>("Font");
             BasicOni = content.Load<Texture2D>("Sprites/Player/Idle__000");             // Temporary sprite since the Enemy sprite isn't finished yet
             SwordSlash = content.Load<Texture2D>("Sprites/Bullet/TempBulletSprite");    // Temporary sprite since the Bullet sprite isn't finished yet
+
+            // Create a 1x1 red texture
+            Pixel = new Texture2D(GameRoot.Instance.GraphicsDevice, 1, 1);
+            Pixel.SetData(new[] { Color.Red });
         }
 
         public static void DrawRectangle(SpriteBatch spriteBatch, Vector2 position, Vector2 size, float rotation, Color color)

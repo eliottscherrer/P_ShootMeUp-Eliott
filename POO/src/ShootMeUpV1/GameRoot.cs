@@ -43,10 +43,6 @@ namespace ShootMeUpV1
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             Visuals.Load(Content);
-
-            // Create a 1x1 red pixel texture
-            Visuals.Pixel = new Texture2D(GraphicsDevice, 1, 1);
-            Visuals.Pixel.SetData(new[] { Color.Red });
         }
 
         protected override void Update(GameTime gameTime)
