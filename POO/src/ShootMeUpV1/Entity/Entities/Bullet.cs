@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 
 namespace ShootMeUpV1
 {
@@ -13,6 +14,7 @@ namespace ShootMeUpV1
         //////////////////////////////////////////////////////////////////////////////
         public Bullet(Vector2 position, Vector2 velocity) : base(position, velocity)
         {
+            Scale = 0.1f;
             Texture = Visuals.SwordSlash;
             Rotation = Velocity.ToAngle();
             CollisionRadius = 8;
