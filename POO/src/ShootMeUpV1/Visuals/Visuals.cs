@@ -18,25 +18,29 @@ namespace ShootMeUpV1
         {
             Player = content.Load<Texture2D>("Sprites/Player/Idle__000");
             SpriteFont = content.Load<SpriteFont>("Font");
-            BasicOni = content.Load<Texture2D>("Sprites/Player/Idle__000"); // Temporary sprite since the Enemy sprite isn't finished yet
-
-            return; // Those sprites are yet to be done
-            SwordSlash = content.Load<Texture2D>("SwordSlash");
+            BasicOni = content.Load<Texture2D>("Sprites/Player/Idle__000");             // Temporary sprite since the Enemy sprite isn't finished yet
+            SwordSlash = content.Load<Texture2D>("Sprites/Bullet/TempBulletSprite");    // Temporary sprite since the Bullet sprite isn't finished yet
         }
 
-        public static void DrawRectangle(SpriteBatch spriteBatch, Rectangle rectangle, Color color)
+        public static void DrawRectangle(SpriteBatch spriteBatch, Rectangle rectangle, Color color, float rotation)
         {
-            // Draw top border
-            spriteBatch.Draw(GameRoot.Pixel, new Rectangle(rectangle.Left, rectangle.Top, rectangle.Width, 1), color);
+            // Define the thickness of the border
+            int thickness = 1;
 
-            // Draw left border
-            spriteBatch.Draw(GameRoot.Pixel, new Rectangle(rectangle.Left, rectangle.Top, 1, rectangle.Height), color);
+            // Define the origin for rotation (rotate around the top-left corner of the rectangle)
+            Vector2 origin = new Vector2(0, 0);
 
-            // Draw right border
-            spriteBatch.Draw(GameRoot.Pixel, new Rectangle(rectangle.Right, rectangle.Top, 1, rectangle.Height), color);
+            // Top border
+            spriteBatch.Draw(GameRoot.Pixel, new Rectangle(rectangle.Left, rectangle.Top, rectangle.Width, thickness), color);
 
-            // Draw bottom border
-            spriteBatch.Draw(GameRoot.Pixel, new Rectangle(rectangle.Left, rectangle.Bottom, rectangle.Width, 1), color);
+            // Left border
+            spriteBatch.Draw(GameRoot.Pixel, new Rectangle(rectangle.Left, rectangle.Top, thickness, rectangle.Height), color);
+
+            // Right border
+            spriteBatch.Draw(GameRoot.Pixel, new Rectangle(rectangle.Right - thickness, rectangle.Top, thickness, rectangle.Height), color);
+
+            // Bottom border
+            spriteBatch.Draw(GameRoot.Pixel, new Rectangle(rectangle.Left, rectangle.Bottom - thickness, rectangle.Width, thickness), color);
         }
     }
 }
