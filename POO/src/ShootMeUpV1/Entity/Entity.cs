@@ -24,6 +24,8 @@ namespace ShootMeUpV1
         // Default constructor
         public Entity(Vector2 position, Vector2 velocity)
         {
+            EntityManager.Add(this);
+
             Position = position;
             Velocity = velocity;
         }

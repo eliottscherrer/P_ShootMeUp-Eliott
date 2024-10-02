@@ -35,9 +35,9 @@ namespace ShootMeUpV1
         {
             base.Initialize();
 
-            EntityManager.Add(LocalPlayer.Instance);
+            LocalPlayer localplayerTest = LocalPlayer.Instance;
 
-            EntityManager.Add(new Enemy(new Vector2(100, 0), 20f));
+            Enemy enemeyTest = new Enemy(new Vector2(100, 0), 20f);
         }
 
         protected override void LoadContent()
