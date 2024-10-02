@@ -13,10 +13,7 @@ namespace ShootMeUpV1
 
         public static int Count => Entities.Count;
 
-        public static void Add(Entity entity)
-        {
-            EntitiesToAdd.Add(entity);
-        }
+        public static void Add(Entity entity) => EntitiesToAdd.Add(entity);
 
         /// <summary>
         /// Update all Entities and manage removals

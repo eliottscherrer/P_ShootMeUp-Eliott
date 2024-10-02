@@ -55,8 +55,7 @@ namespace ShootMeUpV1
             Vector2 aimDirection = GetAimDirection();
 
             // Create a bullet moving in the direction of the aim
-            Bullet newBullet = new Bullet(Position, aimDirection * BulletSpeed);
-            EntityManager.Add(newBullet);
+            EntityManager.Add(new Bullet(Position, aimDirection * BulletSpeed));
 
             // Set the cooldown for the next attack
             RemainingCooldown = ATTACK_COOLDOWN_TIME;
