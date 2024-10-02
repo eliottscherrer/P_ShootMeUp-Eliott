@@ -58,10 +58,10 @@ namespace ShootMeUpV1
         {
             // Calculate the length and angle of the line
             float length = Vector2.Distance(start, end);
-            float angle = (float)Math.Atan2(end.Y - start.Y, end.X - start.X);
+            Vector2 direction = end - start;
+            float angle = direction.ToAngle();
 
             // Draw the line as a rectangle (1xN) rotated to the correct angle
-            spriteBatch.Draw(GameRoot.Pixel, start, null, color, angle, Vector2.Zero, new Vector2(length, 1f), SpriteEffects.None, 0f);
             spriteBatch.Draw(Pixel, start, null, color, angle, Vector2.Zero, new Vector2(length, 1f), SpriteEffects.None, 0f);
         }
     }
