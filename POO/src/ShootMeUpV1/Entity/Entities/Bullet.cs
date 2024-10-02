@@ -17,15 +17,17 @@ namespace ShootMeUpV1
         ///////////////////////////////// [ CONSTS ] /////////////////////////////////
 
         public const int DEFAULT_SPEED = 5;
+        public const int DEFAULT_DAMAGE = 10;
         private const float SCALE = 0.065f;
 
         ////////////////////////////////// [ VARS ] //////////////////////////////////
 
         public readonly BulletType Type;
+        public readonly int Damage;
 
         //////////////////////////////////////////////////////////////////////////////
 
-        public Bullet(Vector2 position, Vector2 velocity, BulletType type) : base(position, velocity)
+        public Bullet(Vector2 position, Vector2 velocity, BulletType type, int damage = DEFAULT_DAMAGE) : base(position, velocity)
         {
             Scale = SCALE;
             Texture = Visuals.SwordSlash;
@@ -33,6 +35,7 @@ namespace ShootMeUpV1
             Rotation += MathHelper.PiOver2; // Add 90 degrees because the texture is not properly oriented
             CollisionRadius = 8;
             Type = type;
+            Damage = damage;
         }
 
         public override void Update(GameTime gameTime)
