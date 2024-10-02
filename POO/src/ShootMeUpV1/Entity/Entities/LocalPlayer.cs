@@ -34,6 +34,7 @@ namespace ShootMeUpV1
         public override void Update(GameTime gameTime)
         {
             // Move the player and limit its movement to the screen (so it cannot go out of bounds)
+            Velocity = Vector2.Zero;
             Velocity += Speed * GetMovementDirection();
             Position += Velocity;
             LimitPositionToBounds();
@@ -41,8 +42,6 @@ namespace ShootMeUpV1
             // Attack cooldown
             if (RemainingCooldown > 0)
                 RemainingCooldown--;
-
-            Velocity = Vector2.Zero;
         }
 
         private static Vector2 GetMovementDirection()
