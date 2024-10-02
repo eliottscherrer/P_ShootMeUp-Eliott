@@ -41,8 +41,7 @@ namespace ShootMeUpV1
             float elapsedSeconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             // Move the player and limit its movement to the screen (so it cannot go out of bounds)
-            Velocity = Vector2.Zero;
-            Velocity += Speed * GetMovementDirection();
+            Velocity = Speed * GetMovementDirection();
             Position += Velocity * elapsedSeconds;
             LimitPositionToBounds();
 
