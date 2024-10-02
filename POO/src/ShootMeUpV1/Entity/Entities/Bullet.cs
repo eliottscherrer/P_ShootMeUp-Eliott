@@ -10,11 +10,12 @@ namespace ShootMeUpV1
         ///////////////////////////////// [ CONSTS ] /////////////////////////////////
 
         public const int DEFAULT_SPEED = 5;
+        private const float SCALE = 0.065f;
 
         //////////////////////////////////////////////////////////////////////////////
         public Bullet(Vector2 position, Vector2 velocity) : base(position, velocity)
         {
-            Scale = 0.1f;
+            Scale = SCALE;
             Texture = Visuals.SwordSlash;
             Rotation = Velocity.ToAngle();
             Rotation += MathHelper.PiOver2; // Add 90 degrees because the texture is not properly oriented
