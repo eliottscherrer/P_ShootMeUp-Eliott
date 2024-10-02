@@ -7,6 +7,9 @@ namespace ShootMeUpV1
 {
     static class Visuals
     {
+        // Helper textures
+        public static Texture2D Pixel { get; set; }
+
         // Sprites
         public static Texture2D Player { get; private set; }
         public static Texture2D BasicOni { get; private set; }
@@ -59,6 +62,7 @@ namespace ShootMeUpV1
 
             // Draw the line as a rectangle (1xN) rotated to the correct angle
             spriteBatch.Draw(GameRoot.Pixel, start, null, color, angle, Vector2.Zero, new Vector2(length, 1f), SpriteEffects.None, 0f);
+            spriteBatch.Draw(Pixel, start, null, color, angle, Vector2.Zero, new Vector2(length, 1f), SpriteEffects.None, 0f);
         }
     }
 }

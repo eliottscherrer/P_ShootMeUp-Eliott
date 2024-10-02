@@ -12,7 +12,6 @@ namespace ShootMeUpV1
         // Graphics
         private readonly GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-        public static Texture2D Pixel;
 
         // Singleton of GameRoot for global access
         public static GameRoot Instance { get; private set; }
@@ -46,8 +45,8 @@ namespace ShootMeUpV1
             Visuals.Load(Content);
 
             // Create a 1x1 red pixel texture
-            Pixel = new Texture2D(GraphicsDevice, 1, 1);
-            Pixel.SetData(new[] { Color.Red });
+            Visuals.Pixel = new Texture2D(GraphicsDevice, 1, 1);
+            Visuals.Pixel.SetData(new[] { Color.Red });
         }
 
         protected override void Update(GameTime gameTime)
