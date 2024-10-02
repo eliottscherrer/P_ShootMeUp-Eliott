@@ -21,10 +21,7 @@ namespace ShootMeUpV1
         }
         public override void Update(GameTime gameTime)
         {
-            // Rotate depending on its direction
-            if (Velocity.LengthSquared() > 0)
-                Rotation = Velocity.ToAngle();
-
+            // Move the player and limit its movement to the screen (so it cannot go out of bounds)
             Position += Velocity;
 
             // Delete when out of bounds
