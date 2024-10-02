@@ -11,6 +11,7 @@ namespace ShootMeUpV1
         private const int ATTACK_COOLDOWN_TIME = 60;           // Counted in frames
         private const float SCALE = 0.25f;
         private const float COLLISION_RADIUS = 75f;
+        private const float DEFAULT_SPEED = 8f;
 
         ////////////////////////////////// [ VARS ] //////////////////////////////////
         
@@ -19,8 +20,8 @@ namespace ShootMeUpV1
         public static LocalPlayer Instance => _instance ??= new LocalPlayer();
 
         // Stats
-        private readonly float Speed = 8f;
-        private int BulletSpeed = Bullet.DEFAULT_SPEED;
+        private readonly float Speed;
+        private int BulletSpeed;
         private float RemainingCooldown;
 
         // Constructor
@@ -29,6 +30,9 @@ namespace ShootMeUpV1
             CollisionRadius = COLLISION_RADIUS;
             Texture = Visuals.Player;
             Scale = SCALE;
+
+            Speed = DEFAULT_SPEED;
+            BulletSpeed = Bullet.DEFAULT_SPEED;
         }
 
         public override void Update(GameTime gameTime)
