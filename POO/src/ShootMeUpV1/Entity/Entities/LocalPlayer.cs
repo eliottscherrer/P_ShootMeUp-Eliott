@@ -74,6 +74,11 @@ namespace ShootMeUpV1
             // TODO: Collision logic
         }
 
+        public void TakeDamage(int damage)
+        {
+            // TODO: Decrease player's health and check if they're dead after the hit
+        }
+
         // Input infos
         private static Vector2 GetMovementDirection()
         {

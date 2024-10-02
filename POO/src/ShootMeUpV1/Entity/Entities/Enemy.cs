@@ -81,5 +81,10 @@ namespace ShootMeUpV1
         {
             // TODO: Collision logic
         }
+
+        public void TakeDamage(int damage)
+        {
+            // TODO: Decrease enemy's health and check if he's dead after the hit
+        }
     }
 }

@@ -51,7 +51,21 @@ namespace ShootMeUpV1
         // Events
         public override void OnCollision(Entity other)
         {
-            throw new NotImplementedException();
+            // Destroy the bullet on any collision
+            this.IsDestroyed = true;
+
+            // Handle the collision based on the type of the other entity
+            // Only considers bullets that aren't from allies
+            switch (other)
+            {
+                case LocalPlayer player when this.Type == BulletType.Enemy:
+                    player.TakeDamage(Damage);
+                    break;
+
+                case Enemy enemy when this.Type == BulletType.Player:
+                    enemy.TakeDamage(Damage);
+                    break;
+            }
         }
     }
 }
