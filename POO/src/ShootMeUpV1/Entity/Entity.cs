@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 
 namespace ShootMeUpV1
 {
@@ -68,11 +69,20 @@ namespace ShootMeUpV1
             }
         }
 
+        // Position limitations
         public bool IsOutOfBounds() => !GameRoot.Viewport.Bounds.Contains(Position.ToPoint());
 
         protected void LimitPositionToBounds()
         {
             Position = Vector2.Clamp(Position, Vector2.Zero, GameRoot.ScreenSize - Size);
         }
+
+        // Collisions
+        public bool IsCollidingWith(Entity other)
+        {
+            throw new NotImplementedException();
+        }
+
+        public abstract void OnCollision(Entity other);
     }
 }

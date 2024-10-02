@@ -54,7 +54,7 @@ namespace ShootMeUpV1
                 Attack();
         }
 
-        // Player actions
+        // User actions
         private void Attack()
         {
             Vector2 aimDirection = GetAimDirection();
@@ -64,6 +64,12 @@ namespace ShootMeUpV1
 
             // Set the cooldown for the next attack
             RemainingCooldown = ATTACK_COOLDOWN_TIME;
+        }
+
+        // Events
+        public override void OnCollision(Entity other)
+        {
+            throw new NotImplementedException();
         }
 
         // Input infos

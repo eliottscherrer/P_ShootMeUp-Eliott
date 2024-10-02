@@ -35,6 +35,8 @@ namespace ShootMeUpV1
                     EntitiesToRemove.Add(entity); // Mark entity for removal
             }
 
+            HandleCollisions();
+
             // Now remove all entities that are marked for destruction
             foreach (Entity entity in EntitiesToRemove)
                 Entities.Remove(entity);
@@ -44,6 +46,11 @@ namespace ShootMeUpV1
         {
             foreach (Entity entity in Entities)
                 entity.Draw(spriteBatch);
+        }
+
+        private static void HandleCollisions()
+        {
+            throw new NotImplementedException();
         }
     }
 }

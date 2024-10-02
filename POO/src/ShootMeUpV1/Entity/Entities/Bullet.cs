@@ -21,6 +21,7 @@ namespace ShootMeUpV1
             Rotation += MathHelper.PiOver2; // Add 90 degrees because the texture is not properly oriented
             CollisionRadius = 8;
         }
+
         public override void Update(GameTime gameTime)
         {
             // Move the player and limit its movement to the screen (so it cannot go out of bounds)
@@ -29,6 +30,12 @@ namespace ShootMeUpV1
             // Delete when out of bounds
             if (this.IsOutOfBounds()) // this is optional but I wrote it for clarity
                 IsDestroyed = true;
+        }
+
+        // Events
+        public override void OnCollision(Entity other)
+        {
+            throw new NotImplementedException();
         }
     }
 }

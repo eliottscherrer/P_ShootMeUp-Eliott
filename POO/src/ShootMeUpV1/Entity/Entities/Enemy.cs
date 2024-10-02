@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 
 namespace ShootMeUpV1
 {
@@ -60,18 +61,23 @@ namespace ShootMeUpV1
                 RemainingCooldown = ATTACK_COOLDOWN_TIME;
             }
         }
-
-
-        private void Attack()
-        {
-            // TODO: Implement attack logic here
-        }
-
         public override void Draw(SpriteBatch spriteBatch)
         {
             base.Draw(spriteBatch);
             
             // TODO: Add healthbar
+        }
+
+        // Actions
+        private void Attack()
+        {
+            // TODO: Implement attack logic here
+        }
+
+        // Events
+        public override void OnCollision(Entity other)
+        {
+            throw new NotImplementedException();
         }
     }
 }
