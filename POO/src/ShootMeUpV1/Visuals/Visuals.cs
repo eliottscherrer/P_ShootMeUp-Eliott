@@ -35,10 +35,10 @@ namespace ShootMeUpV1
             // Calculate the four corners of the rectangle
             Vector2[] corners = new Vector2[4]
             {
-                new Vector2(0, 0),              // Top-left
-                new Vector2(size.X, 0),         // Top-right
-                new Vector2(size.X, size.Y),    // Bottom-right
-                new Vector2(0, size.Y)          // Bottom-left
+                new(0, 0),              // Top-left
+                new(size.X, 0),         // Top-right
+                new(size.X, size.Y),    // Bottom-right
+                new(0, size.Y)          // Bottom-left
             };
 
             // Apply rotation and translate to position
