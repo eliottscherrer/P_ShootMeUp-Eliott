@@ -4,17 +4,19 @@ using System;
 
 namespace ShootMeUpV1
 {
-    class LocalPlayer : Entity
+    class LocalPlayer : Entity, IDamageable
     {
         ///////////////////////////////// [ CONSTS ] /////////////////////////////////
 
         private const float ATTACK_COOLDOWN_TIME = 1f;           // Counted in seconds
         private const float SCALE = 0.25f;
         private const float COLLISION_RADIUS = 75f;
+
         private const float DEFAULT_SPEED = 300f;
+        private const int DEFAULT_MAX_HEALTH = 100;
 
         ////////////////////////////////// [ VARS ] //////////////////////////////////
-        
+
         // Singleton instance 
         private static LocalPlayer _instance;
         public static LocalPlayer Instance => _instance ??= new LocalPlayer();
@@ -23,6 +25,8 @@ namespace ShootMeUpV1
         private readonly float _speed;
         private float _bulletSpeed;
         private float _remainingCooldown;
+        private int _health;
+        public int Health => _health;
 
         //////////////////////////////////////////////////////////////////////////////
 
@@ -35,6 +39,7 @@ namespace ShootMeUpV1
 
             _speed = DEFAULT_SPEED;
             _bulletSpeed = Bullet.DEFAULT_SPEED;
+            _health = DEFAULT_MAX_HEALTH;
         }
 
         public override void Update(GameTime gameTime)
@@ -57,12 +62,12 @@ namespace ShootMeUpV1
         }
 
         // User actions
-        private void Attack()
+        public void Attack()
         {
             Vector2 aimDirection = GetAimDirection();
 
             // Create a bullet moving in the direction of the aim
-            EntityManager.Add(new Bullet(Position, aimDirection * _bulletSpeed, BulletType.Player));
+            EntityManager.Add(new Bullet(Position - new Vector2(50, 50), aimDirection * _bulletSpeed, BulletType.Player));
 
             // Set the cooldown for the next attack
             _remainingCooldown = ATTACK_COOLDOWN_TIME;
