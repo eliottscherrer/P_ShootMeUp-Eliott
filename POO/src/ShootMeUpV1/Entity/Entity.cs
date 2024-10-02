@@ -5,18 +5,26 @@ namespace ShootMeUpV1
 {
     abstract class Entity
     {
+        ///////////////////////////////// [ CONSTS ] /////////////////////////////////
+        
+        protected const float DEFAULT_COLLISION_RADIUS = 20f;
+        protected const float DEFAULT_SCALE = 1f;
+        private const bool SHOW_DEBUG_BOUNDS = true;
+
+        ////////////////////////////////// [ VARS ] //////////////////////////////////
+
         // Visuals
-        protected Texture2D Texture;
-        protected float Scale = 1f;
-        protected Color TintColor = Color.White;
-        protected bool ShowDebugBounds = true;
+        protected Texture2D Texture { get; set; }
+        protected float Scale { get; set; }
+        protected Color TintColor { get; set; } = Color.White; // We set it here since Colors can't be consts
+        protected bool ShowDebugBounds { get; private set; }
 
         // State and properties
-        public Vector2 Position;
-        public Vector2 Velocity;
-        public float Rotation;                              // Rotation in radians
-        public float CollisionRadius = 20f;                 // Circular collision shape radius
-        public bool IsDestroyed = false;                    // Marks entity for destruction
+        public Vector2 Position { get; protected set; }
+        public Vector2 Velocity { get; protected set; }
+        public float Rotation { get; protected set; }         // Rotation in radians
+        public float CollisionRadius { get; protected set; }  // Circular collision shape radius
+        public bool IsDestroyed { get; protected set; }       // Marks entity for destruction
 
         // Calculates entity size based on their texture and scale
         public Vector2 Size => (Texture?.Bounds.Size.ToVector2() ?? Vector2.Zero) * Scale;
@@ -28,6 +36,11 @@ namespace ShootMeUpV1
 
             Position = position;
             Velocity = velocity;
+
+            CollisionRadius = DEFAULT_COLLISION_RADIUS;
+            ShowDebugBounds = SHOW_DEBUG_BOUNDS;
+            Scale = DEFAULT_SCALE;
+            IsDestroyed = false;
         }
 
         // Update method to be implemented by child classes
@@ -53,7 +66,7 @@ namespace ShootMeUpV1
 
             if (ShowDebugBounds)
             {
-                Visuals.DrawRectangle(spriteBatch, Position, Size.X, Size.Y, Rotation, Color.Red);
+                Visuals.DrawRectangle(spriteBatch, Position, Size, Rotation, Color.Red);
             }
         }
 
