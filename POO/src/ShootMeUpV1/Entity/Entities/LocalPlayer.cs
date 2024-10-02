@@ -65,11 +65,8 @@ namespace ShootMeUpV1
 
         private static Vector2 GetAimDirection()
         {
-            MouseState mouseState = Mouse.GetState();
-            Vector2 mousePosition = new Vector2(mouseState.X, mouseState.Y);
-
             // Direction from the player to the mouse
-            Vector2 direction = mousePosition - LocalPlayer.Instance.Position; // LocalPlayer is optional but makes the code clearer
+            Vector2 direction = InputManager.MousePosition - LocalPlayer.Instance.Position; // LocalPlayer is optional but makes the code clearer
 
             if (direction != Vector2.Zero)
                 return Vector2.Normalize(direction);
