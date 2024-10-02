@@ -9,14 +9,14 @@ namespace ShootMeUpV1
     {
         ///////////////////////////////// [ CONSTS ] /////////////////////////////////
 
-        private const int ATTACK_COOLDOWN_TIME = 60;           // Counted in frames
+        private const int ATTACK_COOLDOWN_TIME = 60;            // Counted in frames
         private const float SCALE = 0.25f;
 
         ////////////////////////////////// [ VARS ] //////////////////////////////////
 
         // Stats
         private readonly float Speed = 3f;
-        private float RemainingCooldown; // Cooldown timer for attack
+        private float RemainingCooldown;                        // Cooldown timer for attack
 
         // Constructor
         public Enemy(Vector2 position, float collisionRadius) : base(position, velocity: Vector2.Zero)
