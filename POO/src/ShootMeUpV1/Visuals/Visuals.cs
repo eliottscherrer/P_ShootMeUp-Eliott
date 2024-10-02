@@ -23,15 +23,15 @@ namespace ShootMeUpV1
             SwordSlash = content.Load<Texture2D>("Sprites/Bullet/TempBulletSprite");    // Temporary sprite since the Bullet sprite isn't finished yet
         }
 
-        public static void DrawRectangle(SpriteBatch spriteBatch, Vector2 position, float width, float height, float rotation, Color color)
+        public static void DrawRectangle(SpriteBatch spriteBatch, Vector2 position, Vector2 size, float rotation, Color color)
         {
             // Calculate the four corners of the rectangle
             Vector2[] corners = new Vector2[4]
             {
-                new Vector2(0, 0),          // Top-left
-                new Vector2(width, 0),      // Top-right
-                new Vector2(width, height), // Bottom-right
-                new Vector2(0, height)      // Bottom-left
+                new Vector2(0, 0),              // Top-left
+                new Vector2(size.X, 0),         // Top-right
+                new Vector2(size.X, size.Y),    // Bottom-right
+                new Vector2(0, size.Y)          // Bottom-left
             };
 
             // Apply rotation and translate to position
