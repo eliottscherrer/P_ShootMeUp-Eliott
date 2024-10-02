@@ -17,6 +17,7 @@ namespace ShootMeUpV1
             Scale = 0.1f;
             Texture = Visuals.SwordSlash;
             Rotation = Velocity.ToAngle();
+            Rotation += MathHelper.PiOver2; // Add 90 degrees because the texture is not properly oriented
             CollisionRadius = 8;
         }
         public override void Update(GameTime gameTime)
