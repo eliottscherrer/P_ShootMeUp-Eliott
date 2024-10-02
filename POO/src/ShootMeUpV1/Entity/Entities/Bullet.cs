@@ -40,11 +40,11 @@ namespace ShootMeUpV1
 
         public override void Update(GameTime gameTime)
         {
-            // Move the player and limit its movement to the screen (so it cannot go out of bounds)
+            // Move
             Position += Velocity;
 
             // Delete when out of bounds
-            if (this.IsOutOfBounds()) // this is optional but I wrote it for clarity
+            if (this.IsOutOfBounds()) // "this" is optional but I wrote it for clarity
                 IsDestroyed = true;
         }
 
