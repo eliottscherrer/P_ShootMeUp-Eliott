@@ -21,6 +21,7 @@ namespace ShootMeUpV1
 
         // Stats
         private readonly float Speed = 8f;
+        private int BulletSpeed = Bullet.DEFAULT_SPEED;
         private float RemainingCooldown;
 
         // Constructor

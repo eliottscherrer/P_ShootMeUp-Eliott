@@ -6,6 +6,11 @@ namespace ShootMeUpV1
 {
     class Bullet : Entity
     {
+        ///////////////////////////////// [ CONSTS ] /////////////////////////////////
+
+        public const int DEFAULT_SPEED = 5;
+
+        //////////////////////////////////////////////////////////////////////////////
         public Bullet(Vector2 position, Vector2 velocity) : base(position, velocity)
         {
             Texture = Visuals.SwordSlash;
