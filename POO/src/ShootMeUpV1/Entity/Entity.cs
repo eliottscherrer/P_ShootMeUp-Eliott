@@ -53,15 +53,6 @@ namespace ShootMeUpV1
 
             if (ShowDebugBounds)
             {
-                // Calculate the rectangle representing the entity's bounds (centered on Position)
-                Rectangle debugRect = new Rectangle(
-                    (int)Position.X,
-                    (int)Position.Y,
-                    (int)Size.X,
-                    (int)Size.Y
-                );
-
-                // Draw the rotated rectangle
                 Visuals.DrawRectangle(spriteBatch, Position, Size.X, Size.Y, Rotation, Color.Red);
             }
         }
