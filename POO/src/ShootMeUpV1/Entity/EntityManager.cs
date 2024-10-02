@@ -50,7 +50,22 @@ namespace ShootMeUpV1
 
         private static void HandleCollisions()
         {
-            throw new NotImplementedException();
+            // Simple brute-force collision detection (can be optimized)
+            for (int i = 0; i < Entities.Count; i++)
+            {
+                for (int j = i + 1; j < Entities.Count; j++)
+                {
+                    Entity entityA = Entities[i];
+                    Entity entityB = Entities[j];
+
+                    // Check if the entities collide
+                    if (entityA.IsCollidingWith(entityB))
+                    {
+                        entityA.OnCollision(entityB);
+                        entityB.OnCollision(entityA);
+                    }
+                }
+            }
         }
     }
 }
