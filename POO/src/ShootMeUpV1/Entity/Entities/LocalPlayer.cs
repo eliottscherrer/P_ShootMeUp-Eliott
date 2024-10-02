@@ -8,7 +8,7 @@ namespace ShootMeUpV1
     {
         ///////////////////////////////// [ CONSTS ] /////////////////////////////////
 
-        private const int ATTACK_COOLDOWN_TIME = 60;           // Counted in frames
+        private const float ATTACK_COOLDOWN_TIME = 1f;           // Counted in seconds
         private const float SCALE = 0.25f;
         private const float COLLISION_RADIUS = 75f;
         private const float DEFAULT_SPEED = 8f;
@@ -43,13 +43,16 @@ namespace ShootMeUpV1
             Position += Velocity;
             LimitPositionToBounds();
 
-            // Check for player actions
-            if(InputManager.WasLeftButtonJustPressed())
-                Attack();
+            // Calculate the elapsed time since the last frame in seconds
+            float elapsedSeconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            // Attack cooldown
+            // Update attack cooldown
             if (RemainingCooldown > 0)
-                RemainingCooldown--;
+                RemainingCooldown -= elapsedSeconds;
+
+            // Check for player actions
+            if (RemainingCooldown <= 0 && InputManager.WasLeftButtonJustPressed())
+                Attack();
         }
 
         // Player actions
