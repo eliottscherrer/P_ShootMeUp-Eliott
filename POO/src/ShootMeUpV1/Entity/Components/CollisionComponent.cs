@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using System;
 
 namespace ShootMeUpV1
 {
@@ -26,13 +25,26 @@ namespace ShootMeUpV1
                 if (other == _entity || other.IsDestroyed)
                     continue;
 
-                // TODO: Check for collision with the other entity
+                // Check for collision with the other entity
+                CollisionComponent otherCollisionComponent = other.GetComponent<CollisionComponent>();
+                if (otherCollisionComponent != null && IsCollidingWith(other))
+                {
+                    // Notify both entities of the collision
+                    _entity.OnCollision(other);
+                    other.OnCollision(_entity);
+                }
             }
         }
 
         public bool IsCollidingWith(Entity other)
         {
-            throw new NotImplementedException();
+            Vector2 thisCenter = _entity.Position + _entity.GetComponent<RenderComponent>().Size / 2;
+            Vector2 otherCenter = other.Position + other.GetComponent<RenderComponent>().Size / 2;
+
+            float distanceSquared = Vector2.DistanceSquared(thisCenter, otherCenter);
+            float combinedRadii = this.CollisionRadius + other.GetComponent<CollisionComponent>().CollisionRadius;
+
+            return distanceSquared <= combinedRadii * combinedRadii;
         }
     }
 }
