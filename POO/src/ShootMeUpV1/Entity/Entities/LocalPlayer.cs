@@ -28,7 +28,18 @@ namespace ShootMeUpV1
 
         private void FireBullet()
         {
-            throw new NotImplementedException();
+            Vector2 aimDirection = GetAimDirection();
+            Vector2 bulletStartPosition = Position;
+
+            // Create and add the bullet entity
+            EntityManager.Add(new Bullet(bulletStartPosition, aimDirection));
+        }
+
+        private Vector2 GetAimDirection()
+        {
+            // Get the direction from the player to the mouse position
+            Vector2 direction = InputManager.MousePosition - Position;
+            return direction != Vector2.Zero ? Vector2.Normalize(direction) : Vector2.Zero;
         }
     }
 }
