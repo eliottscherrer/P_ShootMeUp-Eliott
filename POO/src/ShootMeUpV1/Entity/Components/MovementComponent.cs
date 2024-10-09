@@ -21,9 +21,9 @@ namespace ShootMeUpV1
 
         public void Update(GameTime gameTime)
         {
-            Vector2 movementDirection = _movementLogic.GetMovementDirection(_entity);
-            _entity.Velocity = movementDirection * _speed;
-            _entity.Position += _entity.Velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            // Move
+            Vector2 velocity = _movementLogic.GetMovementDirection(_entity) * _speed;
+            _entity.Position += velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             // Only bullets can go out of bounds
             if (_entity is not Bullet)
