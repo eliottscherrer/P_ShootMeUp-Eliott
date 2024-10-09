@@ -11,7 +11,7 @@ namespace ShootMeUpV1
     {
         // Graphics
         private readonly GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
+        public static SpriteBatch SpriteBatch { get; private set; }
 
         // Singleton of GameRoot for global access
         public static GameRoot Instance { get; private set; }
@@ -41,7 +41,7 @@ namespace ShootMeUpV1
 
         protected override void LoadContent()
         {
-            _spriteBatch = new SpriteBatch(GraphicsDevice);
+            SpriteBatch = new SpriteBatch(GraphicsDevice);
             Visuals.Load(Content);
         }
 
@@ -57,12 +57,12 @@ namespace ShootMeUpV1
         {
             GraphicsDevice.Clear(Color.White);
 
-            _spriteBatch.Begin(/*SpriteSortMode.Texture, BlendState.Additive*/);
+            SpriteBatch.Begin(/*SpriteSortMode.Texture, BlendState.Additive*/);
             {
-                EntityManager.Draw(_spriteBatch);
+                EntityManager.Draw(SpriteBatch);
                 //_spriteBatch.DrawString(Visuals.SpriteFont, "onglier", new Vector2(100, 1000), Color.Black);
             }
-            _spriteBatch.End();
+            SpriteBatch.End();
 
             base.Draw(gameTime);
         }
