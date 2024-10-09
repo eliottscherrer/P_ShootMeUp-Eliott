@@ -28,11 +28,11 @@ namespace ShootMeUpV1
 
         private void FireBullet()
         {
-            Vector2 aimDirection = GetAimDirection();
+            // TODO: Change the start position so it's not on top left
             Vector2 bulletStartPosition = Position;
 
             // Create and add the bullet entity
-            EntityManager.Add(new Bullet(bulletStartPosition, aimDirection));
+            EntityManager.Add(new Bullet(bulletStartPosition, GetAimDirection()));
         }
 
         private Vector2 GetAimDirection()
