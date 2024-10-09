@@ -10,6 +10,8 @@ namespace ShootMeUpV1
 {
     public static class EntityManager
     {
+        public static LocalPlayer LocalPlayer;
+
         private static readonly List<Entity> _entities = new();
         private static readonly List<Entity> _entitiesToRemove = new(); // Temporary list for removals
         private static readonly List<Entity> _entitiesToAdd = new();    // Temporary list for additions
@@ -17,10 +19,12 @@ namespace ShootMeUpV1
         public static List<Entity> GetEntities() => _entities;
         public static void Add(Entity entity) => _entitiesToAdd.Add(entity);
 
-        /// <summary>
-        /// Update all Entities and manage removals
-        /// </summary>
-        /// <param name="gameTime"></param>
+        public static void Initialize()
+        {
+            LocalPlayer ??= new LocalPlayer();
+        }
+
+        // Update all Entities and manage removals
         public static void Update(GameTime gameTime)
         {
             // Clear then populate the temporary lists

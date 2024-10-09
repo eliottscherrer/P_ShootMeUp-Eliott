@@ -34,7 +34,7 @@ namespace ShootMeUpV1
         {
             base.Initialize();
 
-            EntityManager.Add(LocalPlayer.Instance);
+            EntityManager.Initialize();
             // Temporary enemy, i will remove it when i implement the enemy spawners
             EntityManager.Add(new Enemy(new Vector2(100, 0), 20f));
         }

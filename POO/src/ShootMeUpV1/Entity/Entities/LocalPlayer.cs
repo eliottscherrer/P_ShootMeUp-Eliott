@@ -17,10 +17,6 @@ namespace ShootMeUpV1
 
         ////////////////////////////////// [ VARS ] //////////////////////////////////
 
-        // Singleton instance 
-        private static LocalPlayer _instance;
-        public static LocalPlayer Instance => _instance ??= new LocalPlayer();
-
         // Stats
         private readonly float _speed;
         private float _bulletSpeed;
