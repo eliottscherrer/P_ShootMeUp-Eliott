@@ -1,97 +1,40 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ShootMeUpV1
 {
-    public abstract class Entity
+    public class Entity
     {
-        ///////////////////////////////// [ CONSTS ] /////////////////////////////////
-        
-        protected const float DEFAULT_COLLISION_RADIUS = 20f;
-        protected const float DEFAULT_SCALE = 1f;
-        private const bool SHOW_DEBUG_BOUNDS = true;
+        private readonly List<IComponent> _components = new List<IComponent>();
+        public Vector2 Position { get; set; }
+        public Vector2 Velocity { get; set; }
+        public float Rotation { get; set; } // In radians
+        public bool IsDestroyed { get; set; }
 
-        ////////////////////////////////// [ VARS ] //////////////////////////////////
-
-        // Visuals
-        protected Texture2D Texture { get; set; }
-        protected float Scale { get; set; }
-        protected Color TintColor { get; set; } = Color.White; // We set it here since Colors can't be consts
-        protected bool ShowDebugBounds { get; private set; }
-
-        // State and properties
-        public Vector2 Position { get; protected set; }
-        public Vector2 RotatedPosition => Position + Vector2.Transform(Vector2.Zero, Matrix.CreateRotationZ(Rotation));
-        public Vector2 Velocity { get; protected set; }
-        public float Rotation { get; protected set; }         // Rotation in radians
-        public float CollisionRadius { get; protected set; }  // Circular collision shape radius
-        public bool IsDestroyed { get; protected set; }       // Marks entity for destruction
-
-        // Calculates entity size based on their texture and scale
-        public Vector2 Size => (Texture?.Bounds.Size.ToVector2() ?? Vector2.Zero) * Scale;
-
-        // Default constructor
-        public Entity(Vector2 position, Vector2 velocity)
+        public Entity(Vector2 position)
         {
             Position = position;
-            Velocity = velocity;
-
-            CollisionRadius = DEFAULT_COLLISION_RADIUS;
-            ShowDebugBounds = SHOW_DEBUG_BOUNDS;
-            Scale = DEFAULT_SCALE;
+            Velocity = Vector2.Zero;
             IsDestroyed = false;
         }
 
-        // Update method to be implemented by child classes
-        public abstract void Update(GameTime gameTime);
-
-        // Draw the entity on screen using SpriteBatch
-        public virtual void Draw(SpriteBatch spriteBatch)
+        public void AddComponent(IComponent component)
         {
-            if (Texture != null)
-            {
-                spriteBatch.Draw(
-                    Texture,
-                    Position,
-                    null,                   // No source rectangle
-                    TintColor,
-                    Rotation,
-                    Vector2.Zero,           // Centered origin (half of the scaled size)
-                    Scale,
-                    SpriteEffects.None,
-                    0f                      // Depth
-                );
-            }
-
-            if (ShowDebugBounds)
-            {
-                Visuals.DrawRectangle(spriteBatch, Position, Size, Rotation, Color.Red);
-            }
+            component.Initialize(this);
+            _components.Add(component);
         }
 
-        // Position limitations
-        public bool IsOutOfBounds() => !GameRoot.Viewport.Bounds.Contains(Position.ToPoint());
+        // Get a specific component by type T
+        public T GetComponent<T>() where T : IComponent => (T)_components.Find(c => c is T);
 
-        protected void LimitPositionToBounds()
-        {
-            Position = Vector2.Clamp(Position, Vector2.Zero, GameRoot.ScreenSize - Size);
-        }
+        // Get all components of type T
+        public T[] GetComponents<T>() where T : IComponent => _components.OfType<T>().ToArray();
 
-        // Collisions
-        public bool IsCollidingWith(Entity other)
-        {
-            // Calculate positions from center
-            Vector2 thisCenter = Position + Size / 2;
-            Vector2 otherCenter = other.Position + other.Size / 2;
+        public virtual void Update(GameTime gameTime) { }
 
-            // Calculate distances between centers
-            float distanceSquared = Vector2.DistanceSquared(thisCenter, otherCenter);
-            float combinedRadii = this.CollisionRadius + other.CollisionRadius;
-
-            return distanceSquared <= combinedRadii * combinedRadii;
-        }
-
-        public abstract void OnCollision(Entity other);
+        public virtual void OnCollision(Entity other) { }
     }
 }
