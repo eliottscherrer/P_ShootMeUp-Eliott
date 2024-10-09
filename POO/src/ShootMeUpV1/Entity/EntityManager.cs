@@ -1,10 +1,6 @@
-﻿#define CONSOLE_DEBUG
-
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
 using System.Collections.Generic;
-
 
 namespace ShootMeUpV1
 {
@@ -17,88 +13,59 @@ namespace ShootMeUpV1
         private static readonly List<Entity> _entitiesToAdd = new();    // Temporary list for additions
 
         public static List<Entity> GetEntities() => _entities;
-        public static void Add(Entity entity) => _entitiesToAdd.Add(entity);
 
         public static void Initialize()
         {
-            LocalPlayer ??= new LocalPlayer();
+            LocalPlayer ??= new LocalPlayer(GameRoot.ScreenSize / 2);
         }
 
-        // Update all Entities and manage removals
+        public static void Add(Entity entity)
+        {
+            // Queue entity to be added during update cycle
+            _entitiesToAdd.Add(entity);
+        }
+
         public static void Update(GameTime gameTime)
         {
-            // Clear then populate the temporary lists
-            _entitiesToRemove.Clear();
-            _entities.AddRange(_entitiesToAdd);
-            _entitiesToAdd.Clear();
+            // Add entities that were queued
+            if (_entitiesToAdd.Count > 0)
+            {
+                _entities.AddRange(_entitiesToAdd);
+                _entitiesToAdd.Clear();
+            }
 
-            // Update entities
             foreach (Entity entity in _entities)
             {
                 entity.Update(gameTime);
+                foreach (IUpdatableComponent updatableComponent in entity.GetComponents<IUpdatableComponent>())
+                {
+                    updatableComponent.Update(gameTime);
+                }
 
                 if (entity.IsDestroyed)
-                    _entitiesToRemove.Add(entity); // Mark entity for removal
+                    _entitiesToRemove.Add(entity);
             }
 
-            HandleCollisions();
+            // Remove destroyed entities
+            if (_entitiesToRemove.Count > 0)
+            {
+                foreach (Entity entity in _entitiesToRemove)
+                    _entities.Remove(entity);
 
-            // Now remove all entities that are marked for destruction
-            foreach (Entity entity in _entitiesToRemove)
-                _entities.Remove(entity);
+                _entitiesToRemove.Clear();
+            }
         }
 
+        // Draw all entities
         public static void Draw(SpriteBatch spriteBatch)
         {
             foreach (Entity entity in _entities)
-                entity.Draw(spriteBatch);
-        }
-
-        private static void HandleCollisions()
-        {
-            // Simple brute-force collision detection (can be optimized)
-            for (int i = 0; i < _entities.Count; i++)
             {
-                for (int j = i + 1; j < _entities.Count; j++)
+                foreach (IDrawableComponent drawableComponent in entity.GetComponents<IDrawableComponent>())
                 {
-                    Entity entityA = _entities[i];
-                    Entity entityB = _entities[j];
-
-                    // Check if the entities collide
-                    if (entityA.IsCollidingWith(entityB))
-                    {
-                        #if CONSOLE_DEBUG
-                        // Debug output with color coding
-                        ConsoleColor colorA = GetColorForType(entityA.GetType().Name);
-                        ConsoleColor colorB = GetColorForType(entityB.GetType().Name);
-
-                        Console.ForegroundColor = colorA;
-                        Console.Write(entityA.GetType().Name);
-
-                        Console.ResetColor();
-                        Console.Write(" collisionne un ");
-
-                        Console.ForegroundColor = colorB;
-                        Console.WriteLine(entityB.GetType().Name);
-
-                        Console.ResetColor();
-                        #endif
-
-                        entityA.OnCollision(entityB);
-                        entityB.OnCollision(entityA);
-                    }
+                    drawableComponent.Draw();
                 }
             }
         }
-
-        #if CONSOLE_DEBUG
-        private static ConsoleColor GetColorForType(string entityType) => entityType switch
-        {
-            "LocalPlayer" => ConsoleColor.Green,
-            "Enemy" => ConsoleColor.Red,
-            "Bullet" => ConsoleColor.Cyan,
-            _ => ConsoleColor.White
-        };
-        #endif
     }
 }
