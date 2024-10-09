@@ -17,7 +17,8 @@ namespace ShootMeUpV1
 
         public Bullet(Vector2 position, Vector2 velocity) : base(position)
         {
-            Velocity = velocity;
+            // TODO: Add a default bullet speed in config
+            Velocity = velocity * 5f;
             Rotation = velocity.ToAngle() + MathHelper.PiOver2;                     // Adjust with Pi/2 because the texture is pointed up
 
             AddComponent(new MovementComponent(new BulletMovementLogic(), 100f));   // Speed
@@ -29,12 +30,17 @@ namespace ShootMeUpV1
 
         public override void Update(GameTime gameTime)
         {
-            // TODO: Destroy if it goes out of bounds
+            // Destroy if it goes out of bounds
+            if(IsOutOfBounds())
+                IsDestroyed = true;
         }
+
+        private bool IsOutOfBounds() => !Position.X.IsInRange(0, GameRoot.ScreenSize.X) ||
+                                        !Position.Y.IsInRange(0, GameRoot.ScreenSize.Y);
 
         public override void OnCollision(Entity other)
         {
-            throw new NotImplementedException();
+            // TODO: Collision logic
         }
     }
 }
