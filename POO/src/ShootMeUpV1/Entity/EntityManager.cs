@@ -10,13 +10,12 @@ namespace ShootMeUpV1
 {
     public static class EntityManager
     {
-        private static readonly List<Entity> Entities = new();
-        private static readonly List<Entity> EntitiesToRemove = new(); // Temporary list for removals
-        private static readonly List<Entity> EntitiesToAdd = new();    // Temporary list for additions
+        private static readonly List<Entity> _entities = new();
+        private static readonly List<Entity> _entitiesToRemove = new(); // Temporary list for removals
+        private static readonly List<Entity> _entitiesToAdd = new();    // Temporary list for additions
 
-        public static int Count => Entities.Count;
-
-        public static void Add(Entity entity) => EntitiesToAdd.Add(entity);
+        public static List<Entity> GetEntities() => _entities;
+        public static void Add(Entity entity) => _entitiesToAdd.Add(entity);
 
         /// <summary>
         /// Update all Entities and manage removals
@@ -25,41 +24,41 @@ namespace ShootMeUpV1
         public static void Update(GameTime gameTime)
         {
             // Clear then populate the temporary lists
-            EntitiesToRemove.Clear();
-            Entities.AddRange(EntitiesToAdd);
-            EntitiesToAdd.Clear();
+            _entitiesToRemove.Clear();
+            _entities.AddRange(_entitiesToAdd);
+            _entitiesToAdd.Clear();
 
             // Update entities
-            foreach (Entity entity in Entities)
+            foreach (Entity entity in _entities)
             {
                 entity.Update(gameTime);
 
                 if (entity.IsDestroyed)
-                    EntitiesToRemove.Add(entity); // Mark entity for removal
+                    _entitiesToRemove.Add(entity); // Mark entity for removal
             }
 
             HandleCollisions();
 
             // Now remove all entities that are marked for destruction
-            foreach (Entity entity in EntitiesToRemove)
-                Entities.Remove(entity);
+            foreach (Entity entity in _entitiesToRemove)
+                _entities.Remove(entity);
         }
 
         public static void Draw(SpriteBatch spriteBatch)
         {
-            foreach (Entity entity in Entities)
+            foreach (Entity entity in _entities)
                 entity.Draw(spriteBatch);
         }
 
         private static void HandleCollisions()
         {
             // Simple brute-force collision detection (can be optimized)
-            for (int i = 0; i < Entities.Count; i++)
+            for (int i = 0; i < _entities.Count; i++)
             {
-                for (int j = i + 1; j < Entities.Count; j++)
+                for (int j = i + 1; j < _entities.Count; j++)
                 {
-                    Entity entityA = Entities[i];
-                    Entity entityB = Entities[j];
+                    Entity entityA = _entities[i];
+                    Entity entityB = _entities[j];
 
                     // Check if the entities collide
                     if (entityA.IsCollidingWith(entityB))
