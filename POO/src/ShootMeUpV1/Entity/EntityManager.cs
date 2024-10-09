@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace ShootMeUpV1
 {
-    static class EntityManager
+    public static class EntityManager
     {
         private static readonly List<Entity> Entities = new();
         private static readonly List<Entity> EntitiesToRemove = new(); // Temporary list for removals

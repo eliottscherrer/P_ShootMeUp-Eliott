@@ -4,7 +4,7 @@ using System;
 
 namespace ShootMeUpV1
 {
-    abstract class Entity
+    public abstract class Entity
     {
         ///////////////////////////////// [ CONSTS ] /////////////////////////////////
         

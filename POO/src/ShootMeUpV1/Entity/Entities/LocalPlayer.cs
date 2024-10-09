@@ -4,7 +4,7 @@ using System;
 
 namespace ShootMeUpV1
 {
-    class LocalPlayer : Entity, IDamageable
+    public class LocalPlayer : Entity, IDamageable
     {
         ///////////////////////////////// [ CONSTS ] /////////////////////////////////
 

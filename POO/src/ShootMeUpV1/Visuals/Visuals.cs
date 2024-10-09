@@ -5,7 +5,7 @@ using System;
 
 namespace ShootMeUpV1
 {
-    static class Visuals
+    public static class Visuals
     {
         // Helper textures
         public static Texture2D Pixel { get; set; }

@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace ShootMeUpV1
 {
-    static class InputManager
+    public static class InputManager
     {
         // States
         private static KeyboardState KeyboardState, LastKeyboardState;

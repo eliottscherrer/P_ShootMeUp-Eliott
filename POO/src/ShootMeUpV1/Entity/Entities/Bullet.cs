@@ -5,14 +5,14 @@ using System;
 
 namespace ShootMeUpV1
 {
-    enum BulletType
+    public enum BulletType
     {
         Player,
-        Enemy
+        Enemy,
         SIZE
     }
 
-    class Bullet : Entity
+    public class Bullet : Entity
     {
         ///////////////////////////////// [ CONSTS ] /////////////////////////////////
 
