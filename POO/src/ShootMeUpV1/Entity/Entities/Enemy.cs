@@ -1,90 +1,19 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
 
 namespace ShootMeUpV1
 {
     public class Enemy : Entity
     {
-        ///////////////////////////////// [ CONSTS ] /////////////////////////////////
-
-        private const int ATTACK_COOLDOWN_TIME = 60;            // Counted in frames
-        private const float SCALE = 0.25f;
-
-        ////////////////////////////////// [ VARS ] //////////////////////////////////
-
-        // Stats
-        private readonly float Speed = 3f;
-        private float RemainingCooldown;                        // Cooldown timer for attack
-
-        //////////////////////////////////////////////////////////////////////////////
-
-        // Constructor
-        public Enemy(Vector2 position, float collisionRadius) : base(position, velocity: Vector2.Zero)
+        public Enemy(Vector2 position) : base(position)
         {
-            Texture = Visuals.BasicOni;
-            CollisionRadius = collisionRadius;
-            Scale = SCALE;
-            RemainingCooldown = 0;
-        }
+            // TODO: Config files
+            AddComponent(new MovementComponent(new EnemyMovementLogic(), 100f));    // Speed
+            AddComponent(new RenderComponent(Visuals.BasicOni, 0.25f));             // Enemy texture
+            AddComponent(new CollisionComponent(75f));                              // Collision radius
 
-        public override void Update(GameTime gameTime)
-        {
-            // Update cooldown
-            if (RemainingCooldown > 0)
-                RemainingCooldown--;
-
-            // Get the player position and calculate the direction to the player
-            Vector2 playerPosition = LocalPlayer.Instance.Position;
-            Vector2 directionToPlayer = playerPosition - Position;
-
-            // Only move towards the player we're not colliding with it
-            if (!IsCollidingWith(LocalPlayer.Instance))
-            {
-                // Normalize the direction and scale it by speed
-                directionToPlayer.Normalize();
-                Velocity = directionToPlayer * Speed;
-
-                // Move the enemy
-                Position += Velocity;
-                LimitPositionToBounds();
-            }
-            else
-            {
-                // Stop moving if close to the player
-                Velocity = Vector2.Zero;
-            }
-
-            // Attack
-            if (RemainingCooldown <= 0 && Vector2.Distance(Position, playerPosition) < CollisionRadius)
-            {
-                Attack();
-                // Reset the cooldown after the attack
-                RemainingCooldown = ATTACK_COOLDOWN_TIME;
-            }
-        }
-        public override void Draw(SpriteBatch spriteBatch)
-        {
-            base.Draw(spriteBatch);
-            
-            // TODO: Add healthbar
-        }
-
-        // Actions
-        private void Attack()
-        {
-            // TODO: Implement attack logic here
-        }
-
-        // Events
-        public override void OnCollision(Entity other)
-        {
-            // TODO: Collision logic
-        }
-
-        public void TakeDamage(int damage)
-        {
-            // TODO: Decrease enemy's health and check if it's dead after the hit
+            // TODO: Health
+            //       Health bar
+            //       Debug infos
         }
     }
 }
