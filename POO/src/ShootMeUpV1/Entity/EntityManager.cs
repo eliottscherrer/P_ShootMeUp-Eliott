@@ -6,7 +6,7 @@ namespace ShootMeUpV1
 {
     public static class EntityManager
     {
-        public static LocalPlayer LocalPlayer;
+        public static LocalPlayer LocalPlayer { get; private set; }
 
         private static readonly List<Entity> _entities = new();
         private static readonly List<Entity> _entitiesToRemove = new(); // Temporary list for removals
@@ -16,7 +16,11 @@ namespace ShootMeUpV1
 
         public static void Initialize()
         {
-            LocalPlayer ??= new LocalPlayer(GameRoot.ScreenSize / 2);
+            if (LocalPlayer == null)
+            {
+                LocalPlayer = new LocalPlayer(GameRoot.ScreenSize / 2);
+                Add(LocalPlayer);
+            }
         }
 
         public static void Add(Entity entity)
