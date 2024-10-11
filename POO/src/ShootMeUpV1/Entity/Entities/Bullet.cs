@@ -18,11 +18,11 @@ namespace ShootMeUpV1
         public Bullet(Vector2 position, Vector2 direction) : base(position)
         {
             Velocity = direction;
-            Rotation = direction.ToAngle() + MathHelper.PiOver2;                     // Adjust with Pi/2 because the texture is pointed up
+            Rotation = direction.ToAngle() + MathHelper.PiOver2; // Adjust with Pi/2 because the texture is pointed up
 
-            AddComponent(new MovementComponent(new BulletMovementLogic(), 500f));   // Speed
-            AddComponent(new RenderComponent(Visuals.SwordSlash, 0.065f));          // Texture
-            AddComponent(new CollisionComponent(6f));                               // Collision radius
+            AddComponent(new MovementComponent(new BulletMovementLogic(), Configs.Bullet.Speed));
+            AddComponent(new RenderComponent(Visuals.SwordSlash, Configs.Bullet.Scale));
+            AddComponent(new CollisionComponent(Configs.Bullet.CollisionRadius));
 
             // TODO: Debug infos
         }

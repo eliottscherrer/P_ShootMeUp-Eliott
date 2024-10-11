@@ -5,7 +5,6 @@ namespace ShootMeUpV1
 {
     public class LocalPlayer : Entity
     {
-        public int Damage = 20;
 
         public LocalPlayer(Vector2 position) : base(position)
         {
