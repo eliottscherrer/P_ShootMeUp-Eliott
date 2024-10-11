@@ -1,11 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
-using System;
 
 namespace ShootMeUpV1
 {
     public class LocalPlayer : Entity
     {
-
         public LocalPlayer(Vector2 position) : base(position)
         {
             // TODO: Config files

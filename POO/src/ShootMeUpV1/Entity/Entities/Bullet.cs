@@ -5,7 +5,6 @@ using System;
 
 namespace ShootMeUpV1
 {
-
     public class Bullet : Entity
     {
         public enum Type
@@ -14,6 +13,8 @@ namespace ShootMeUpV1
             Enemy,
             SIZE
         }
+
+        private Type _type;
 
         public Bullet(Vector2 position, Vector2 direction) : base(position)
         {
@@ -39,7 +40,19 @@ namespace ShootMeUpV1
 
         public override void OnCollision(Entity other)
         {
-            // TODO: Collision logic
+            switch (other)
+            {
+                case LocalPlayer when _type == Type.Enemy:
+                case Enemy when _type == Type.LocalPlayer:
+                    this.IsDestroyed = true;
+                    // TODO: Take damage
+                    break;
+
+                case Bullet bullet:
+                    this.IsDestroyed = true;
+                    bullet.IsDestroyed = true;
+                    break;
+            }
         }
     }
 }
