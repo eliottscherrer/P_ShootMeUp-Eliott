@@ -55,3 +55,8 @@ FLUSH PRIVILEGES;
 SHOW GRANTS FOR 'Administrateur';
 SHOW GRANTS FOR 'Joueur1';
 SHOW GRANTS FOR 'GestionnaireBoutique';
+
+-- Montrer les privilèges de chaque rôle
+SHOW GRANTS FOR 'Administrateurs';
+SHOW GRANTS FOR 'Joueurs';
+SHOW GRANTS FOR 'GestionnairesBoutique';
