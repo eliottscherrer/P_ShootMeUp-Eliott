@@ -5,13 +5,13 @@ title Restauration de la base de données - Restore Script
 echo.
 echo [92m===========================================
 echo     RESTAURATION DE LA BASE DE DONNEES     
-echo               ANTOINE MVENG             
+echo                 DEFAULT DB        
 echo ============================================
 echo.
 
 :: Exécution de la commande de restauration
 echo [93mRestauration en cours...
-docker exec -i db mysql -u root -proot < AMG-A_ImportDump.sql
+docker exec -i db mysql -u root -proot < ESR-A_ImportDump.sql
 
 :: Vérification de succès ou d'erreur
 if %errorlevel% equ 0 (
