@@ -30,7 +30,7 @@ namespace ShootMeUpV1
 
             // Create and add the bullet entity
             Vector2 direction = Position.GetDirectionTo(InputManager.MousePosition);
-            EntityManager.Add(new Bullet(startPosition, direction));
+            EntityManager.Add(new Bullet(startPosition, direction, Bullet.BulletType.LocalPlayer));
         }
 
         public override void OnCollision(Entity other)

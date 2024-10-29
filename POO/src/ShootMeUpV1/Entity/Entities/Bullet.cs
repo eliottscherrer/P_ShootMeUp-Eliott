@@ -16,10 +16,11 @@ namespace ShootMeUpV1
 
         public BulletType Type;
 
-        public Bullet(Vector2 position, Vector2 direction) : base(position)
+        public Bullet(Vector2 position, Vector2 direction, BulletType type) : base(position)
         {
             Velocity = direction;
             Rotation = direction.ToAngle() + MathHelper.PiOver2; // Adjust with Pi/2 because the texture is pointed up
+            Type = type;
 
             AddComponent(new MovementComponent(new BulletMovementLogic(), Configs.Bullet.Speed));
             AddComponent(new RenderComponent(Visuals.SwordSlash, Configs.Bullet.Scale));
