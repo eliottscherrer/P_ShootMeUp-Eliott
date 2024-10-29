@@ -7,14 +7,14 @@ namespace ShootMeUpV1
 {
     public class Bullet : Entity
     {
-        public enum Type
+        public enum BulletType
         {
             LocalPlayer,
             Enemy,
             SIZE
         }
 
-        private Type _type;
+        public BulletType Type;
 
         public Bullet(Vector2 position, Vector2 direction) : base(position)
         {
@@ -42,15 +42,10 @@ namespace ShootMeUpV1
         {
             switch (other)
             {
-                case LocalPlayer when _type == Type.Enemy:
-                case Enemy when _type == Type.LocalPlayer:
+                // Destroy both bullets if they collide
+                case Bullet:
                     this.IsDestroyed = true;
-                    // TODO: Take damage
-                    break;
-
-                case Bullet bullet:
-                    this.IsDestroyed = true;
-                    bullet.IsDestroyed = true;
+                    other.IsDestroyed = true;
                     break;
             }
         }

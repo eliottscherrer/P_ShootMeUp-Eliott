@@ -15,5 +15,19 @@ namespace ShootMeUpV1
             //       Health bar
             //       Debug infos
         }
+
+        public override void OnCollision(Entity other)
+        {
+            switch (other)
+            {
+                // Only take damage from the player's bullets
+                case Bullet bullet when bullet.Type == Bullet.BulletType.LocalPlayer:
+                    bullet.IsDestroyed = true;
+                    // TODO: Take damage
+                    break;
+
+                default: break;
+            }
+        }
     }
 }

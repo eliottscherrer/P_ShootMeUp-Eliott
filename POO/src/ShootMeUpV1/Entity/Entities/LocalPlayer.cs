@@ -38,5 +38,19 @@ namespace ShootMeUpV1
             Vector2 direction = InputManager.MousePosition - Position;
             return direction != Vector2.Zero ? Vector2.Normalize(direction) : Vector2.Zero;
         }
+
+        public override void OnCollision(Entity other)
+        {
+            switch (other)
+            {
+                // When the player collides with a bullet from another entity
+                case Bullet bullet when bullet.Type != Bullet.BulletType.LocalPlayer:
+                    bullet.IsDestroyed = true;
+                    // TODO: Take damage
+                    break;
+
+                default: break;
+            }
+        }
     }
 }
