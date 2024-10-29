@@ -25,14 +25,30 @@ namespace ShootMeUpV1
 
         public void TakeDamage(float amount)
         {
+            CurrentHealth -= amount;
+
+            if (CurrentHealth <= 0)
+            {
+                CurrentHealth = 0;
+                // TODO: Trigger death event
+            }
+
+            // TODO: Check if health is below a certain threshold and trigger an event
+            //       (for abilities that boosts damage when health is low etc)
         }
 
         public void Heal(float amount)
         {
+            if (amount <= 0) return;
+
+            // Cannot go over max health
+            CurrentHealth = Math.Min(CurrentHealth + amount, _maxHealth);
         }
 
         public void Update(GameTime gameTime)
         {
+            // TODO: Invulnerability
+            //       Regeneration
         }
     }
 }
