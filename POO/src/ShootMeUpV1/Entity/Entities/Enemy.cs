@@ -7,7 +7,7 @@ namespace ShootMeUpV1
         public Enemy(Vector2 position) : base(position)
         {
             // TODO: Config files
-            AddComponent(new MovementComponent(new EnemyMovementLogic(), Configs.Enemy.Speed));
+            AddComponent(new MovementComponent(new EnemyMovementLogic(), Configs.Enemy.BaseSpeed));
             AddComponent(new RenderComponent(Visuals.BasicOni, Configs.Enemy.Scale));
             AddComponent(new CollisionComponent(Configs.Enemy.CollisionRadius));
 
