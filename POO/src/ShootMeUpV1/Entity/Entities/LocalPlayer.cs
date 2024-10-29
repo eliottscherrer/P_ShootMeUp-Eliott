@@ -6,7 +6,6 @@ namespace ShootMeUpV1
     {
         public LocalPlayer(Vector2 position) : base(position)
         {
-            // TODO: Config files
             AddComponent(new MovementComponent(new PlayerMovementLogic(), 300f));   // Speed
             AddComponent(new RenderComponent(Visuals.Player, 0.25f));               // Player texture
             AddComponent(new CollisionComponent(50f));                              // Collision radius
@@ -27,17 +26,11 @@ namespace ShootMeUpV1
         private void FireBullet()
         {
             // TODO: Change the start position so it's not on top left
-            Vector2 bulletStartPosition = Position;
+            Vector2 startPosition = Position;
 
             // Create and add the bullet entity
-            EntityManager.Add(new Bullet(bulletStartPosition, GetAimDirection()));
-        }
-
-        private Vector2 GetAimDirection()
-        {
-            // Get the direction from the player to the mouse position
-            Vector2 direction = InputManager.MousePosition - Position;
-            return direction != Vector2.Zero ? Vector2.Normalize(direction) : Vector2.Zero;
+            Vector2 direction = Position.GetDirectionTo(InputManager.MousePosition);
+            EntityManager.Add(new Bullet(startPosition, direction));
         }
 
         public override void OnCollision(Entity other)
