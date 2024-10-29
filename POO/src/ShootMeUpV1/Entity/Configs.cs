@@ -13,6 +13,7 @@ namespace Configs
 
     public static class Enemy
     {
+        public const float BaseMaxHealth = 10f;
         public const float Speed = 100f;
         public const float CollisionRadius = 75f;
         public static readonly Texture2D Texture = Visuals.BasicOni;
@@ -21,6 +22,7 @@ namespace Configs
 
     public static class Player
     {
+        public const float BaseMaxHealth = 100f;
         public const float BaseSpeed = 300f;
         public const float BaseCollisionRadius = 50f;
         public static readonly Texture2D Texture = Visuals.Player;
