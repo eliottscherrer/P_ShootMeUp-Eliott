@@ -1,4 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
+using System;
 
 namespace ShootMeUpV1
 {
@@ -6,7 +8,6 @@ namespace ShootMeUpV1
     {
         public Enemy(Vector2 position) : base(position)
         {
-            // TODO: Config files
             AddComponent(new MovementComponent(new EnemyMovementLogic(), Configs.Enemy.BaseSpeed));
             AddComponent(new RenderComponent(Visuals.BasicOni, Configs.Enemy.Scale));
             AddComponent(new CollisionComponent(Configs.Enemy.CollisionRadius));
@@ -15,6 +16,24 @@ namespace ShootMeUpV1
             // TODO: Health
             //       Health bar
             //       Debug infos
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            if (InputManager.WasKeyJustPressed(Keys.Space)) // TODO: Add actual firing conditions
+            {
+                FireBullet();
+            }
+        }
+
+        private void FireBullet()
+        {
+            // TODO: Change the start position so it's not on top left
+            Vector2 startPosition = Position;
+
+            // Create and add the bullet entity
+            Vector2 direction = Position.GetDirectionTo(EntityManager.LocalPlayer.Position);
+            EntityManager.Add(new Bullet(startPosition, direction, Bullet.BulletType.Enemy));
         }
 
         public override void OnCollision(Entity other)
