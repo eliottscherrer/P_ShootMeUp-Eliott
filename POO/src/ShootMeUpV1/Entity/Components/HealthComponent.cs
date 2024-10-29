@@ -31,6 +31,7 @@ namespace ShootMeUpV1
             {
                 CurrentHealth = 0;
                 // TODO: Trigger death event
+                _entity.IsDestroyed = true;
             }
 
             // TODO: Check if health is below a certain threshold and trigger an event

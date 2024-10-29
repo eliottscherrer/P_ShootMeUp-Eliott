@@ -10,6 +10,7 @@ namespace ShootMeUpV1
             AddComponent(new MovementComponent(new EnemyMovementLogic(), Configs.Enemy.BaseSpeed));
             AddComponent(new RenderComponent(Visuals.BasicOni, Configs.Enemy.Scale));
             AddComponent(new CollisionComponent(Configs.Enemy.CollisionRadius));
+            AddComponent(new HealthComponent(Configs.Enemy.BaseMaxHealth));
 
             // TODO: Health
             //       Health bar
@@ -23,7 +24,7 @@ namespace ShootMeUpV1
                 // Only take damage from the player's bullets
                 case Bullet bullet when bullet.Type == Bullet.BulletType.LocalPlayer:
                     bullet.IsDestroyed = true;
-                    // TODO: Take damage
+                    GetComponent<HealthComponent>().TakeDamage(Configs.Player.BaseDamage); // TODO: Add variable damage amount depending on the weapon of the player etc.
                     break;
 
                 default: break;
