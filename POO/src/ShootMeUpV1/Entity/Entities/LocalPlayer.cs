@@ -10,6 +10,7 @@ namespace ShootMeUpV1
             AddComponent(new MovementComponent(new PlayerMovementLogic(), 300f));   // Speed
             AddComponent(new RenderComponent(Visuals.Player, 0.25f));               // Player texture
             AddComponent(new CollisionComponent(50f));                              // Collision radius
+            AddComponent(new HealthComponent(Configs.Enemy.BaseMaxHealth));
 
             // TODO: Health
             //       Debug infos
@@ -46,7 +47,7 @@ namespace ShootMeUpV1
                 // When the player collides with a bullet from another entity
                 case Bullet bullet when bullet.Type != Bullet.BulletType.LocalPlayer:
                     bullet.IsDestroyed = true;
-                    // TODO: Take damage
+                    GetComponent<HealthComponent>().TakeDamage(Configs.Enemy.BaseDamage); // TODO: Add variable damage amount depending on the enemy type etc.
                     break;
 
                 default: break;
