@@ -23,10 +23,10 @@ namespace ShootMeUpV1
             Type = type;
 
             AddComponent(new MovementComponent(new BulletMovementLogic(), Configs.Bullet.Speed));
-            AddComponent(new RenderComponent(Visuals.SwordSlash, Configs.Bullet.Scale));
+            AddComponent(new RenderComponent(Configs.Bullet.Texture, Configs.Bullet.Scale));
             AddComponent(new CollisionComponent(Configs.Bullet.CollisionRadius));
 
-            // TODO: Debug infos
+            AddComponent(new DebugComponent());
         }
 
         public override void Update(GameTime gameTime)

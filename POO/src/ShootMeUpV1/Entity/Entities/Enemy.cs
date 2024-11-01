@@ -9,13 +9,13 @@ namespace ShootMeUpV1
         public Enemy(Vector2 position) : base(position)
         {
             AddComponent(new MovementComponent(new EnemyMovementLogic(), Configs.Enemy.BaseSpeed));
-            AddComponent(new RenderComponent(Visuals.BasicOni, Configs.Enemy.Scale));
+            AddComponent(new RenderComponent(Configs.Enemy.Texture, Configs.Enemy.Scale));
             AddComponent(new CollisionComponent(Configs.Enemy.CollisionRadius));
             AddComponent(new HealthComponent(Configs.Enemy.BaseMaxHealth));
 
-            // TODO: Health
-            //       Health bar
-            //       Debug infos
+            AddComponent(new DebugComponent());
+
+            // TODO: Health bar
         }
 
         public override void Update(GameTime gameTime)

@@ -10,9 +10,11 @@ namespace ShootMeUpV1
     {
         public Protection(Vector2 position) : base(position)
         {
-            AddComponent(new RenderComponent(Visuals.Protection, Configs.Protection.Scale));
+            AddComponent(new RenderComponent(Configs.Protection.Texture, Configs.Protection.Scale));
             AddComponent(new CollisionComponent(Configs.Protection.CollisionRadius));
             AddComponent(new HealthComponent(Configs.Protection.BaseMaxHealth));
+
+            AddComponent(new DebugComponent());
         }
 
         public override void OnCollision(Entity other)
@@ -32,10 +34,6 @@ namespace ShootMeUpV1
                 case Bullet:
                     // Any other type of bullet just get destroyed
                     other.IsDestroyed = true;
-                    break;
-
-                default:
-                    // TODO: Anything other than enemy's bullets stop moving
                     break;
             }
         }

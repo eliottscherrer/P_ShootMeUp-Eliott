@@ -6,13 +6,12 @@ namespace ShootMeUpV1
     {
         public LocalPlayer(Vector2 position) : base(position)
         {
-            AddComponent(new MovementComponent(new PlayerMovementLogic(), 300f));   // Speed
-            AddComponent(new RenderComponent(Visuals.Player, 0.25f));               // Player texture
-            AddComponent(new CollisionComponent(50f));                              // Collision radius
+            AddComponent(new MovementComponent(new PlayerMovementLogic(), Configs.Player.BaseSpeed));
+            AddComponent(new RenderComponent(Configs.Player.Texture, scale: Configs.Player.BaseScale));
+            AddComponent(new CollisionComponent(Configs.Player.BaseCollisionRadius));
             AddComponent(new HealthComponent(Configs.Enemy.BaseMaxHealth));
 
-            // TODO: Health
-            //       Debug infos
+            AddComponent(new DebugComponent());
         }
 
         public override void Update(GameTime gameTime)
@@ -40,8 +39,9 @@ namespace ShootMeUpV1
 
         private void PlaceProtection()
         {
-            // Create and add the protection at mouse position
-            EntityManager.Add(new Protection(InputManager.MousePosition));
+            // Create and add the protection with the center of the protection at mouse position 
+            Vector2 position = InputManager.MousePosition - GetComponent<RenderComponent>().Size / 2;
+            EntityManager.Add(new Protection(position));
         }
 
         public override void OnCollision(Entity other)
