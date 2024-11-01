@@ -33,4 +33,11 @@ namespace Configs
         public static readonly Texture2D Texture = Visuals.Player;
         public const float BaseScale = 0.25f;
     }
+
+    public static class Protection
+    {
+        public const float CollisionRadius = 6f;
+        public static readonly Texture2D Texture = Visuals.SwordSlash;
+        public const float Scale = 0.065f;
+    }
 }
