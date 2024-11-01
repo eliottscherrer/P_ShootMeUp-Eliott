@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 
 namespace ShootMeUpV1
 {
@@ -45,6 +46,27 @@ namespace ShootMeUpV1
             float combinedRadii = this.CollisionRadius + other.GetComponent<CollisionComponent>().CollisionRadius;
 
             return distanceSquared <= combinedRadii * combinedRadii;
+        }
+
+        public bool IsCollidingWith(Type entityType)
+        {
+            foreach (Entity other in EntityManager.GetEntitiesOfType<Protection>())
+            {
+                if (other == _entity || other.IsDestroyed) continue;
+
+                Vector2 thisCenter = _entity.Position + _entity.GetComponent<RenderComponent>().Size / 2;
+                Vector2 otherCenter = other.Position + other.GetComponent<RenderComponent>().Size / 2;
+
+                float distanceSquared = Vector2.DistanceSquared(thisCenter, otherCenter);
+                float combinedRadii = this.CollisionRadius + other.GetComponent<CollisionComponent>().CollisionRadius;
+
+                if (distanceSquared <= combinedRadii * combinedRadii)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }
