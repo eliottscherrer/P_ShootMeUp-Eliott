@@ -8,14 +8,14 @@ namespace ShootMeUpV1
         private Entity _entity;
         private Texture2D _texture;
         private float _scale;
-        private Color _color;
+        public Color Color;
         public Vector2 Size => (_texture?.Bounds.Size.ToVector2() ?? Vector2.Zero) * _scale;
 
         public RenderComponent(Texture2D texture, float scale = 1f, Color? color = null)
         {
             _texture = texture;
             _scale = scale;
-            _color = color ?? Color.White;
+            Color = color ?? Color.White;
         }
 
         public void Initialize(Entity entity)
@@ -27,7 +27,7 @@ namespace ShootMeUpV1
         {
             if (_texture != null)
             {
-                GameRoot.SpriteBatch.Draw(_texture, _entity.Position, null, _color, _entity.Rotation, Vector2.Zero, _scale, SpriteEffects.None, 0f);
+                GameRoot.SpriteBatch.Draw(_texture, _entity.Position, null, Color, _entity.Rotation, Vector2.Zero, _scale, SpriteEffects.None, 0f);
             }
         }
     }
