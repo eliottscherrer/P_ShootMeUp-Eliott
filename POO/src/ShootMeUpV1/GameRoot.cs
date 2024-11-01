@@ -20,7 +20,6 @@ namespace ShootMeUpV1
         public static Viewport Viewport => Instance.GraphicsDevice.Viewport;
         public static Vector2 ScreenSize => new(Viewport.Width, Viewport.Height);
 
-
         public GameRoot()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -33,6 +32,10 @@ namespace ShootMeUpV1
         protected override void Initialize()
         {
             base.Initialize();
+
+            _graphics.PreferredBackBufferWidth = 1600;
+            _graphics.PreferredBackBufferHeight = 900;
+            _graphics.ApplyChanges();
 
             EntityManager.Initialize();
             // Temporary enemy, i will remove it when i implement the enemy spawners
