@@ -14,5 +14,19 @@ namespace ShootMeUpV1
             AddComponent(new RenderComponent(Visuals.Protection, Configs.Protection.Scale));
             AddComponent(new CollisionComponent(Configs.Protection.CollisionRadius));
         }
+
+        public override void OnCollision(Entity other)
+        {
+            switch (other)
+            {
+                case Bullet:
+                    other.IsDestroyed = true;
+                    break;
+
+                default:
+                    // TODO: Stop other's movements
+                    break;
+            }
+        }
     }
 }
