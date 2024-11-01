@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,14 @@ namespace ShootMeUpV1
         }
 
         public void Update(GameTime gameTime)
+        {
+            if (InputManager.WasKeyJustPressed(Keys.E)) // TODO: Change the PlaceProtection() keybind
+            {
+                PlaceProtection();
+            }
+        }
+
+        private void PlaceProtection()
         {
             throw new NotImplementedException();
         }
