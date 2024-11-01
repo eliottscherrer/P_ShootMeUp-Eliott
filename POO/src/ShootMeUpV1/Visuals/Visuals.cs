@@ -32,7 +32,7 @@ namespace ShootMeUpV1
             Pixel.SetData(new[] { Color.Red });
         }
 
-        public static void DrawRectangle(SpriteBatch spriteBatch, Vector2 position, Vector2 size, float rotation, Color color)
+        public static void DrawRectangle(Vector2 position, Vector2 size, float rotation, Color color)
         {
             // Calculate the four corners of the rectangle
             Vector2[] corners = new Vector2[4]
@@ -54,13 +54,13 @@ namespace ShootMeUpV1
             }
 
             // Draw the lines between the corners (could be made into a loop but it would be terrible to read)
-            DrawLine(spriteBatch, corners[0], corners[1], color);
-            DrawLine(spriteBatch, corners[1], corners[2], color);
-            DrawLine(spriteBatch, corners[2], corners[3], color);
-            DrawLine(spriteBatch, corners[3], corners[0], color);
+            DrawLine(corners[0], corners[1], color);
+            DrawLine(corners[1], corners[2], color);
+            DrawLine(corners[2], corners[3], color);
+            DrawLine(corners[3], corners[0], color);
         }
 
-        private static void DrawLine(SpriteBatch spriteBatch, Vector2 start, Vector2 end, Color color)
+        public static void DrawLine(Vector2 start, Vector2 end, Color color)
         {
             // Calculate the length and angle of the line
             float length = Vector2.Distance(start, end);
@@ -68,7 +68,7 @@ namespace ShootMeUpV1
             float angle = direction.ToAngle();
 
             // Draw the line as a rectangle (1xN) rotated to the correct angle
-            spriteBatch.Draw(Pixel, start, null, color, angle, Vector2.Zero, new Vector2(length, 1f), SpriteEffects.None, 0f);
+            GameRoot.SpriteBatch.Draw(Pixel, start, null, color, angle, Vector2.Zero, new Vector2(length, 1f), SpriteEffects.None, 0f);
         }
     }
 }
