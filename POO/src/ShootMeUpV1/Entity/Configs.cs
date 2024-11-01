@@ -36,8 +36,10 @@ namespace Configs
 
     public static class Protection
     {
-        public const float CollisionRadius = 6f;
+        public const float BaseMaxHealth = 25f;
+
+        public const float CollisionRadius = 25f;
         public static readonly Texture2D Texture = Visuals.SwordSlash;
-        public const float Scale = 0.065f;
+        public const float Scale = 0.2f;
     }
 }
