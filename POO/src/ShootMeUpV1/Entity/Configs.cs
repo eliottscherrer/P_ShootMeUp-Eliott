@@ -19,8 +19,8 @@ namespace Configs
         public const float BaseSpeed = 100f;
 
         public const float CollisionRadius = 75f;
-        public static readonly Texture2D Texture = Visuals.BasicOni;
-        public const float Scale = 0.25f;
+        public static readonly Texture2D Texture = Visuals.BasicDemon;
+        public const float Scale = 2.5f;
     }
 
     public static class Player
