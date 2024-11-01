@@ -7,11 +7,14 @@ namespace ShootMeUpV1
         private Entity _entity;
         private readonly IMovementLogic _movementLogic;
         private float _speed;
+        public bool CanMove;
 
         public MovementComponent(IMovementLogic movementLogic, float speed)
         {
             _movementLogic = movementLogic;
             _speed = speed;
+
+            CanMove = true;
         }
 
         public void Initialize(Entity entity)
@@ -21,6 +24,9 @@ namespace ShootMeUpV1
 
         public void Update(GameTime gameTime)
         {
+            if (!CanMove)
+                return;
+
             // Move
             Vector2 velocity = _movementLogic.GetMovementDirection(_entity) * _speed;
             _entity.Position += velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
