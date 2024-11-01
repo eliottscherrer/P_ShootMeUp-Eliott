@@ -14,6 +14,7 @@ namespace ShootMeUpV1
         public static Texture2D Player { get; private set; }
         public static Texture2D BasicOni { get; private set; }
         public static Texture2D SwordSlash { get; private set; }
+        public static Texture2D Protection { get; private set; }
 
         // Fonts
         public static SpriteFont SpriteFont { get; private set; }
@@ -24,6 +25,7 @@ namespace ShootMeUpV1
             SpriteFont = content.Load<SpriteFont>("Font");
             BasicOni = content.Load<Texture2D>("Sprites/Player/Idle__000");             // Temporary sprite since the Enemy sprite isn't finished yet
             SwordSlash = content.Load<Texture2D>("Sprites/Bullet/TempBulletSprite");    // Temporary sprite since the Bullet sprite isn't finished yet
+            Protection = content.Load<Texture2D>("Sprites/Protection/protectionsprite");    // Temporary sprite since the Bullet sprite isn't finished yet
 
             // Create a 1x1 red texture
             Pixel = new Texture2D(GameRoot.Instance.GraphicsDevice, 1, 1);
