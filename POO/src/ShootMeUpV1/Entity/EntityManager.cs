@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ShootMeUpV1
 {
@@ -13,6 +14,8 @@ namespace ShootMeUpV1
         private static readonly List<Entity> _entitiesToAdd = new();    // Temporary list for additions
 
         public static List<Entity> GetEntities() => _entities;
+
+        public static List<T> GetEntitiesOfType<T>() where T : Entity => _entities.OfType<T>().ToList();
 
         public static void Initialize()
         {
