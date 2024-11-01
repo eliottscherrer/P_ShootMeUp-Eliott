@@ -21,6 +21,11 @@ namespace ShootMeUpV1
             {
                 FireBullet();
             }
+
+            if (InputManager.WasRightButtonJustPressed())
+            {
+                PlaceProtection();
+            }
         }
 
         private void FireBullet()
@@ -31,6 +36,12 @@ namespace ShootMeUpV1
             // Create and add the bullet entity
             Vector2 direction = Position.GetDirectionTo(InputManager.MousePosition);
             EntityManager.Add(new Bullet(startPosition, direction, Bullet.BulletType.LocalPlayer));
+        }
+
+        private void PlaceProtection()
+        {
+            // Create and add the protection at mouse position
+            EntityManager.Add(new Protection(InputManager.MousePosition));
         }
 
         public override void OnCollision(Entity other)
