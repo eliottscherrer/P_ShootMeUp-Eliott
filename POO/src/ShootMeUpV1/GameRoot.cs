@@ -38,8 +38,6 @@ namespace ShootMeUpV1
             _graphics.ApplyChanges();
 
             EntityManager.Initialize();
-            // Temporary enemy, i will remove it when i implement the enemy spawners
-            EntityManager.Add(new Enemy(new Vector2(100, 0)));
         }
 
         protected override void LoadContent()
@@ -60,10 +58,9 @@ namespace ShootMeUpV1
         {
             GraphicsDevice.Clear(Color.White);
 
-            SpriteBatch.Begin(/*SpriteSortMode.Texture, BlendState.Additive*/);
+            SpriteBatch.Begin();
             {
                 EntityManager.Draw(SpriteBatch);
-                //_spriteBatch.DrawString(Visuals.SpriteFont, "onglier", new Vector2(100, 1000), Color.Black);
             }
             SpriteBatch.End();
 
