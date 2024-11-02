@@ -1,0 +1,173 @@
+@startuml
+
+interface IComponent {
+    + void Initialize(Entity entity)
+}
+
+interface IDrawableComponent extends IComponent {
+    + void Draw()
+}
+
+interface IUpdatableComponent extends IComponent {
+    + void Update(GameTime gameTime)
+}
+
+interface IMovementLogic {
+    + Vector2 GetMovementDirection(Entity entity)
+}
+
+class CollisionComponent implements IUpdatableComponent {
+    - Entity _entity
+    - float CollisionRadius
+    + CollisionComponent(float collisionRadius)
+    + void Initialize(Entity entity)
+    + void Update(GameTime gameTime)
+    + bool IsCollidingWith(Entity other)
+    + bool IsCollidingWith(Type entityType)
+}
+
+class DebugComponent implements IDrawableComponent {
+    - Entity _entity
+    - bool isDebugModeEnabled
+    + void Initialize(Entity entity)
+    + void ToggleDebugMode()
+    + void Draw()
+}
+
+class HealthComponent implements IUpdatableComponent, IDrawableComponent {
+    - Entity _entity
+    - float _maxHealth
+    - Texture2D _backgroundTexture
+    - Texture2D _foregroundTexture
+    + float CurrentHealth
+    + HealthComponent(float maxHealth)
+    + void Initialize(Entity entity)
+    + void TakeDamage(float amount)
+    + void Heal(float amount)
+    + void Update(GameTime gameTime)
+    + void Draw()
+}
+
+class MovementComponent implements IUpdatableComponent {
+    - Entity _entity
+    - IMovementLogic _movementLogic
+    - float _speed
+    + bool CanMove
+    + MovementComponent(IMovementLogic movementLogic, float speed)
+    + void Initialize(Entity entity)
+    + void Update(GameTime gameTime)
+    - void LimitPositionToBounds()
+}
+
+class BulletMovementLogic implements IMovementLogic {
+    + Vector2 GetMovementDirection(Entity entity)
+}
+
+class EnemyMovementLogic implements IMovementLogic {
+    + Vector2 GetMovementDirection(Entity entity)
+}
+
+class PlayerMovementLogic implements IMovementLogic {
+    + Vector2 GetMovementDirection(Entity entity)
+}
+
+class Bullet extends Entity {
+    + enum BulletType
+    + Bullet(Vector2 position, Vector2 direction, BulletType type)
+    + void Update(GameTime gameTime)
+    + void OnCollision(Entity other)
+    - bool IsOutOfBounds()
+}
+
+class Enemy extends Entity {
+    + Enemy(Vector2 position)
+    + void Update(GameTime gameTime)
+    + void OnCollision(Entity other)
+    - void FireBullet()
+}
+
+class EnemySpawner extends Entity {
+    - float _spawnInterval
+    - float _timeSinceLastSpawn
+    + EnemySpawner(Vector2 position, float spawnInterval)
+    + void Update(GameTime gameTime)
+    + void SpawnEnemy()
+}
+
+class LocalPlayer extends Entity {
+    + LocalPlayer(Vector2 position)
+    + void Update(GameTime gameTime)
+    + void OnCollision(Entity other)
+    - void FireBullet()
+    - void PlaceProtection()
+}
+
+class Protection extends Entity {
+    + Protection(Vector2 position)
+    + void Update(GameTime gameTime)
+    + void OnCollision(Entity other)
+}
+
+class Entity {
+    - List<IComponent> _components
+    + Vector2 Position
+    + Vector2 Velocity
+    + float Rotation
+    + bool IsDestroyed
+    + Entity(Vector2 position)
+    + void AddComponent(IComponent component)
+    + T GetComponent<T>()
+    + T[] GetComponents<T>()
+    + void Update(GameTime gameTime)
+    + void OnCollision(Entity other)
+}
+
+class EntityManager {
+    + LocalPlayer LocalPlayer
+    - List<Entity> _entities
+    - List<Entity> _entitiesToRemove
+    - List<Entity> _entitiesToAdd
+    + List<Entity> GetEntities()
+    + List<T> GetEntitiesOfType<T>()
+    + void Initialize()
+    + void Add(Entity entity)
+    + void Update(GameTime gameTime)
+    + void Draw(SpriteBatch spriteBatch)
+}
+
+class Visuals {
+    + static Texture2D Pixel
+    + static Texture2D Player
+    + static Texture2D BasicDemon
+    + static Texture2D SwordSlash
+    + static Texture2D Protection
+    + static Texture2D EnemySpawner
+    + static SpriteFont SpriteFont
+    + static void Load(ContentManager content)
+    + static void DrawRectangle(Vector2 position, Vector2 size, float rotation, Color color)
+    + static void DrawLine(Vector2 start, Vector2 end, Color color)
+}
+
+class GameRoot {
+    - GraphicsDeviceManager _graphics
+    + static SpriteBatch SpriteBatch
+    + static GameRoot Instance
+    + static Viewport Viewport
+    + static Vector2 ScreenSize
+    + GameRoot()
+    + void Initialize()
+    + void LoadContent()
+    + void Update(GameTime gameTime)
+    + void Draw(GameTime gameTime)
+}
+
+' Key Associations
+EntityManager *-- Entity
+Entity *-- IComponent
+MovementComponent *-- IMovementLogic
+LocalPlayer --> PlayerMovementLogic
+Bullet --> MovementComponent
+Enemy --> MovementComponent
+LocalPlayer --> MovementComponent
+
+@enduml
