@@ -24,6 +24,9 @@ namespace ShootMeUpV1
                 LocalPlayer = new LocalPlayer(GameRoot.ScreenSize / 2);
                 Add(LocalPlayer);
             }
+
+            Add(new EnemySpawner(new Vector2(50f, 50f), 10f));
+            Add(new EnemySpawner(new Vector2(GameRoot.ScreenSize.X - 200f, 50f), 3f));
         }
 
         public static void Add(Entity entity)

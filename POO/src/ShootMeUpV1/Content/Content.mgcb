@@ -44,6 +44,18 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/Enemy/FlameDemon Evolved.png;Sprites/Enemy/Enemy.png
 
+#begin Sprites/EnemySpawner/Spawner_with_fire.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/EnemySpawner/Spawner_with_fire.png;Sprites/EnemySpawner/EnemySpawner.png
+
 #begin Sprites/Player/Attack__000.png
 /importer:TextureImporter
 /processor:TextureProcessor

@@ -42,4 +42,10 @@ namespace Configs
         public static readonly Texture2D Texture = Visuals.Protection;
         public const float Scale = .5f;
     }
+
+    public static class EnemySpawner
+    {
+        public static readonly Texture2D Texture = Visuals.EnemySpawner;
+        public const float Scale = 0.4f;
+    }
 }
