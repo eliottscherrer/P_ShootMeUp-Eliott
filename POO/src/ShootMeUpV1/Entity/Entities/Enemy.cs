@@ -6,6 +6,9 @@ namespace ShootMeUpV1
 {
     public class Enemy : Entity
     {
+        private float shootingInterval;     // Intervalle en secondes entre chaque tir
+        private float timeSinceLastShot;
+
         public Enemy(Vector2 position) : base(position)
         {
             AddComponent(new MovementComponent(new EnemyMovementLogic(), Configs.Enemy.BaseSpeed));
@@ -13,16 +16,20 @@ namespace ShootMeUpV1
             AddComponent(new CollisionComponent(Configs.Enemy.CollisionRadius));
             AddComponent(new HealthComponent(Configs.Enemy.BaseMaxHealth));
 
-            AddComponent(new DebugComponent());
+            //AddComponent(new DebugComponent());
 
-            // TODO: Health bar
+            shootingInterval = Configs.Enemy.BaseCooldown;
+            timeSinceLastShot = 0f;
         }
 
         public override void Update(GameTime gameTime)
         {
-            if (InputManager.WasKeyJustPressed(Keys.Space)) // TODO: Add actual firing conditions
+            timeSinceLastShot += (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            if (timeSinceLastShot >= shootingInterval + GlobalHelpers.Rand.Next(-5, 5) / 10)
             {
                 FireBullet();
+                timeSinceLastShot = 0.0f;
             }
         }
 

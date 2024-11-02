@@ -4,6 +4,11 @@ namespace ShootMeUpV1
 {
     public class LocalPlayer : Entity
     {
+        private float bulletCooldown;
+        private float protectionCooldown;
+        private float timeSinceLastBullet = 0f;
+        private float timeSinceLastProtection = 0f;
+
         public LocalPlayer(Vector2 position) : base(position)
         {
             AddComponent(new MovementComponent(new PlayerMovementLogic(), Configs.Player.BaseSpeed));
@@ -11,19 +16,31 @@ namespace ShootMeUpV1
             AddComponent(new CollisionComponent(Configs.Player.BaseCollisionRadius));
             AddComponent(new HealthComponent(Configs.Enemy.BaseMaxHealth));
 
-            AddComponent(new DebugComponent());
+            //AddComponent(new DebugComponent());
+
+            bulletCooldown = Configs.Player.BulletCooldown;
+            protectionCooldown = Configs.Player.ProtectionCooldown;
         }
 
         public override void Update(GameTime gameTime)
         {
-            if (InputManager.WasLeftButtonJustPressed())
+            // Update cooldown timers
+            float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            timeSinceLastBullet += deltaTime;
+            timeSinceLastProtection += deltaTime;
+
+            // Check cooldown for firing bullet
+            if (InputManager.WasLeftButtonJustPressed() && timeSinceLastBullet >= bulletCooldown)
             {
                 FireBullet();
+                timeSinceLastBullet = 0f; // Reset cooldown timer
             }
 
-            if (InputManager.WasRightButtonJustPressed())
+            // Check cooldown for placing protection
+            if (InputManager.WasRightButtonJustPressed() && timeSinceLastProtection >= protectionCooldown)
             {
                 PlaceProtection();
+                timeSinceLastProtection = 0f; // Reset cooldown timer
             }
         }
 

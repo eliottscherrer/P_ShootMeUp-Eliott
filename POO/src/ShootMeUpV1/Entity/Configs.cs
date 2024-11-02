@@ -17,6 +17,7 @@ namespace Configs
         public const float BaseMaxHealth = 10f;
         public const float BaseDamage = 5;
         public const float BaseSpeed = 100f;
+        public const float BaseCooldown = 2f;
 
         public const float CollisionRadius = 75f;
         public static readonly Texture2D Texture = Visuals.BasicDemon;
@@ -25,6 +26,9 @@ namespace Configs
 
     public static class Player
     {
+        public const float BulletCooldown = 0.2f;
+        public const float ProtectionCooldown = 5f;
+
         public const float BaseMaxHealth = 100f;
         public const float BaseDamage = 5;
         public const float BaseSpeed = 300f;
