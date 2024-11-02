@@ -43,5 +43,4 @@ namespace ShootMeUpV1
             _entity.Position = Vector2.Clamp(_entity.Position, Vector2.Zero, GameRoot.ScreenSize - entitySize);
         }
     }
-
 }

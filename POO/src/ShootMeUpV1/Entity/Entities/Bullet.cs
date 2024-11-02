@@ -31,7 +31,7 @@ namespace ShootMeUpV1
 
         public override void Update(GameTime gameTime)
         {
-            // Destroy if it goes out of bounds
+            // Destroy when out of bounds to free memory
             if (IsOutOfBounds())
                 IsDestroyed = true;
         }
