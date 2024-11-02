@@ -19,7 +19,7 @@ namespace ShootMeUpV1
 
             AddComponent(new RenderComponent(Configs.EnemySpawner.Texture, Configs.EnemySpawner.Scale));
 
-            AddComponent(new DebugComponent());
+            //AddComponent(new DebugComponent());
         }
 
         public override void Update(GameTime gameTime)

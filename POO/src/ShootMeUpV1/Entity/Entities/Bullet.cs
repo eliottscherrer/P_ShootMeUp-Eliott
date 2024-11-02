@@ -26,7 +26,7 @@ namespace ShootMeUpV1
             AddComponent(new RenderComponent(Configs.Bullet.Texture, Configs.Bullet.Scale));
             AddComponent(new CollisionComponent(Configs.Bullet.CollisionRadius));
 
-            AddComponent(new DebugComponent());
+            //AddComponent(new DebugComponent());
         }
 
         public override void Update(GameTime gameTime)

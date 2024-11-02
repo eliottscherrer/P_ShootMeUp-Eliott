@@ -14,7 +14,7 @@ namespace ShootMeUpV1
             AddComponent(new CollisionComponent(Configs.Protection.CollisionRadius));
             AddComponent(new HealthComponent(Configs.Protection.BaseMaxHealth));
 
-            AddComponent(new DebugComponent());
+            //AddComponent(new DebugComponent());
         }
 
         public override void OnCollision(Entity other)
